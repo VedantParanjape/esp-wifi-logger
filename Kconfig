@@ -1,0 +1,41 @@
+menu "WiFi Logger configration"
+
+choice TRANSPORT_PROTOCOL
+    prompt "Network protocol (TCP/UDP)"
+    default TRANSPORT_PROTOCOL_UDP
+    help
+        "Network protocol to be used to relay log messages, either use UDP or TCP."
+
+    config TRANSPORT_PROTOCOL_UDP
+        bool "UDP"
+
+    config TRANSPORT_PROTOCOL_TCP
+        bool "TCP"
+
+endchoice
+
+config SERVER_IP_ADDRESS
+    string "Server IP Address"
+    default "192.168.0.10"
+    help 
+        "IP Address of server, where logs are to be sent"
+
+config SERVER_PORT
+    int "Port"
+    default 9999
+    help 
+        "Port of server, where logs are to be sent"
+
+config MESSAGE_QUEUE_SIZE
+    int "Queue Size"
+    default 1000
+    help 
+        "Sets message queue size"
+
+config BUFFER_SIZE
+    int "logger buffer size"
+    default 512
+    help 
+        "Logger buffer size"
+        
+endmenu
