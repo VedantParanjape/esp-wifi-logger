@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WiFi Logger component: Main Page</title>
+<title>WiFi Logger component: WiFi Logger component</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,10 +61,63 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">WiFi Logger component Documentation</div>  </div>
+<div class="title">WiFi Logger component </div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p>ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or websockets (future releases)</p><ul>
+<li>Generates log messages with same format as ESP-IDF Logging API</li>
+<li>Follows ESP-IDF color pattern for different log levels.</li>
+</ul>
+<h2>Requirements</h2>
+<ul>
+<li><code>protocol_examples_common (esp-idf/examples/common_components/)</code></li>
+</ul>
+<h2>Installation</h2>
+<div class="fragment"><div class="line">cd &lt;your_esp_idf_project&gt;</div><div class="line">mkdir components</div><div class="line">cd components</div><div class="line">git clone https://github.com/VedantParanjape/esp-wifi-logger.git wifi_logger</div></div><!-- fragment --><h2>Usage</h2>
+<h3>How to receive logs</h3>
+<ul>
+<li><code>sudo apt-get install netcat</code> netcat is required to receive logs</li>
+<li><code>nc -lu &lt;PORT&gt;</code> receive logs when <em><b>UDP</b></em> is used as network protocol</li>
+<li><code>nc -l &lt;PORT&gt;</code> receive logs when <em><b>TCP</b></em> is used as network protocol</li>
+<li><b>Example</b>: Assume, <em>port</em> is <b>1212</b> over TCP, command will be: <code>nc -l 1212</code> ### How to use in ESP-IDF Projects <div class="fragment"><div class="line">wifi_log_e() - Generate log with log level ERROR</div><div class="line">wifi_log_w() - Generate log with log level WARN</div><div class="line">wifi_log_i() - Generate log with log level INFO</div><div class="line">wifi_log_d() - Generate log with log level DEBUG</div><div class="line">wifi_log_v() - Generate log with log level VERBOSE</div></div><!-- fragment --></li>
+<li>Usage pattern same as, <code>ESP_LOGX()</code></li>
+<li>Use <code>wifi_log()_x</code> function to print logs over wifi</li>
+<li>Example: <code>wifi_log(TAG, "%s", "logger test");</code></li>
+<li>Call <code><a class="el" href="wifi__logger_8h.html#a8e612786031d82bb0eac8affe469ed2c" title="wrapper function to start wifi logger ">start_wifi_logger()</a></code> in <code>void app_main()</code> to start the logger. Logging function <code>wifi_log</code> can be called to log messages</li>
+<li>Configure <code>menuconfig</code><ul>
+<li><code>Example Connection Configuration</code> <em>Set WiFi SSID and password</em></li>
+<li><code>Component config</code></li>
+<li><code>WiFi Logger configuration</code><ul>
+<li><code>Network Protocol (TCP/UDP)</code> - Set network protocol to be used</li>
+<li><code>Server IP Address</code> - Set the IP Address of the server which will receive log messages sent by ESP32</li>
+<li><code>Port</code> - Set the Port of the server</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>IP Address of the server can be found out by running <code>ifconfig</code> on a linux machine</em></p>
+<h2>Configuration</h2>
+<div class="fragment"><div class="line">idf.py menuconfig</div></div><!-- fragment --><ul>
+<li><code>Example Connection Configuration</code><ul>
+<li><code>WiFi SSID</code> - Set WiFi SSID to connect</li>
+<li><code>WiFi Password</code> - Set WiFi Password</li>
+</ul>
+</li>
+<li><code>Component config</code><ul>
+<li><code>WiFi Logger configuration</code><ul>
+<li><code>Network Protocol (TCP/UDP)</code> - Set network protocol to be used</li>
+<li><code>Server IP Address</code> - Set the IP Address of the server which will receive log messages sent by ESP32</li>
+<li><code>Port</code> - Set the Port of the server</li>
+<li><code>Queue Size</code> - <em><b>Advanced Config, change at your own risk***** Set the freeRTOS Queue size used to pass log messages to logger task.</b></em></li>
+<li><em><b><code>logger buffer size</code> - ***Advanced Config, change at your own risk</b></em> Set the buffer size of char array used to generate log messages in ESP format</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Example</h2>
+<div class="fragment"><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &quot;freertos/FreeRTOS.h&quot;</div><div class="line">#include &quot;freertos/task.h&quot;</div><div class="line">#include &quot;wifi_logger.h&quot;</div><div class="line"></div><div class="line"></div><div class="line">void app_main(void)</div><div class="line">{</div><div class="line">    start_wifi_logger(); // Start wifi logger</div><div class="line"></div><div class="line">    while(1)</div><div class="line">    {</div><div class="line">        wifi_log_e(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; ERROR</div><div class="line">        wifi_log_w(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; WARN</div><div class="line">        wifi_log_i(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; INFO</div><div class="line">        wifi_log_d(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; DEBUG</div><div class="line">        wifi_log_v(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; VERBOSE</div><div class="line"></div><div class="line">        vTaskDelay(100);  // Wait for 100ms, prevent watchdog from triggering a reset</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

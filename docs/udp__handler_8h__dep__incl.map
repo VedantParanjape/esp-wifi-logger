@@ -1,5 +1,5 @@
-<map id="/home/vedant/Programming/projects/components/esp&#45;wifi&#45;logger/include/udp_handler.h" name="/home/vedant/Programming/projects/components/esp&#45;wifi&#45;logger/include/udp_handler.h">
-<area shape="rect" id="node2" href="$wifi__logger_8h.html" title="/home/vedant/Programming\l/projects/components/esp\l&#45;wifi&#45;logger/include/wifi\l_logger.h" alt="" coords="5,124,188,195"/>
-<area shape="rect" id="node4" href="$udp__handler_8c.html" title="/home/vedant/Programming\l/projects/components/esp\l&#45;wifi&#45;logger/udp_handler.c" alt="" coords="212,131,395,187"/>
-<area shape="rect" id="node3" href="$wifi__logger_8c.html" title="/home/vedant/Programming\l/projects/components/esp\l&#45;wifi&#45;logger/wifi_logger.c" alt="" coords="5,243,188,299"/>
+<map id="include/udp_handler.h" name="include/udp_handler.h">
+<area shape="rect" id="node2" href="$wifi__logger_8h.html" title="include/wifi_logger.h" alt="" coords="5,80,145,107"/>
+<area shape="rect" id="node4" href="$udp__handler_8c.html" title="udp_handler.c" alt="" coords="169,80,272,107"/>
+<area shape="rect" id="node3" href="$wifi__logger_8c.html" title="wifi_logger.c" alt="" coords="28,155,123,181"/>
 </map>

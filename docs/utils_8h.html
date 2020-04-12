@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WiFi Logger component: /home/vedant/Programming/projects/components/esp-wifi-logger/include/utils.h File Reference</title>
+<title>WiFi Logger component: include/utils.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,11 +73,11 @@ $(function() {
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="utils_8h__dep__incl.png" border="0" usemap="#_2home_2vedant_2_programming_2projects_2components_2esp-wifi-logger_2include_2utils_8hdep" alt=""/></div>
-<map name="_2home_2vedant_2_programming_2projects_2components_2esp-wifi-logger_2include_2utils_8hdep" id="_2home_2vedant_2_programming_2projects_2components_2esp-wifi-logger_2include_2utils_8hdep">
-<area shape="rect" id="node2" href="wifi__logger_8h.html" title="/home/vedant/Programming\l/projects/components/esp\l&#45;wifi&#45;logger/include/wifi\l_logger.h" alt="" coords="5,109,188,180"/>
-<area shape="rect" id="node4" href="utils_8cpp.html" title="/home/vedant/Programming\l/projects/components/esp\l&#45;wifi&#45;logger/utils.cpp" alt="" coords="212,117,395,173"/>
-<area shape="rect" id="node3" href="wifi__logger_8c.html" title="/home/vedant/Programming\l/projects/components/esp\l&#45;wifi&#45;logger/wifi_logger.c" alt="" coords="5,228,188,284"/>
+<div class="center"><img src="utils_8h__dep__incl.png" border="0" usemap="#include_2utils_8hdep" alt=""/></div>
+<map name="include_2utils_8hdep" id="include_2utils_8hdep">
+<area shape="rect" id="node2" href="wifi__logger_8h.html" title="include/wifi_logger.h" alt="" coords="5,80,145,107"/>
+<area shape="rect" id="node4" href="utils_8cpp.html" title="utils.cpp" alt="" coords="169,80,240,107"/>
+<area shape="rect" id="node3" href="wifi__logger_8c.html" title="wifi_logger.c" alt="" coords="28,155,123,181"/>
 </map>
 </div>
 </div>
@@ -85,13 +85,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af768902cbc75dc282b88515dd045b7b5"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#af768902cbc75dc282b88515dd045b7b5">generate_log_message_timestamp</a> (uint32_t timestamp, char *log_message)</td></tr>
-<tr class="memdesc:af768902cbc75dc282b88515dd045b7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds timestamp to the log message  <a href="#af768902cbc75dc282b88515dd045b7b5">More...</a><br /></td></tr>
-<tr class="separator:af768902cbc75dc282b88515dd045b7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc9368ed632b09b72ddca76dd00e340a"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#afc9368ed632b09b72ddca76dd00e340a">generate_log_message_timestamp</a> (uint log_level, uint32_t timestamp, char *log_message)</td></tr>
+<tr class="memdesc:afc9368ed632b09b72ddca76dd00e340a"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds timestamp to the log message  <a href="#afc9368ed632b09b72ddca76dd00e340a">More...</a><br /></td></tr>
+<tr class="separator:afc9368ed632b09b72ddca76dd00e340a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="af768902cbc75dc282b88515dd045b7b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af768902cbc75dc282b88515dd045b7b5">&#9670;&nbsp;</a></span>generate_log_message_timestamp()</h2>
+<a id="afc9368ed632b09b72ddca76dd00e340a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc9368ed632b09b72ddca76dd00e340a">&#9670;&nbsp;</a></span>generate_log_message_timestamp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -99,6 +99,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">char* generate_log_message_timestamp </td>
           <td>(</td>
+          <td class="paramtype">uint&#160;</td>
+          <td class="paramname"><em>log_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>timestamp</em>, </td>
         </tr>
