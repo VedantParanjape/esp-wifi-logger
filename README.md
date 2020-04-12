@@ -1,10 +1,12 @@
 WiFi Logger component
 ====================
-WiFi logger - Log messages over WiFi, using either TCP, UDP or websockets (future releases)
+ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or websockets (future releases)
+* Generates log messages with same format as ESP-IDF Logging API
+* Follows ESP-IDF color pattern for different log levels.
 
 ## Requirements
 
-* `protocol_examples_common (esp-idf/examples)`
+* `protocol_examples_common (esp-idf/examples/common_components/)`
 
 ## Installation
 
@@ -17,10 +19,26 @@ git clone https://github.com/VedantParanjape/esp-wifi-logger.git wifi_logger
 
 ## Usage
 
-* Usage pattern similar to how ESP_LOGX() is used.
-* Use `wifi_log()` function to print logs over wifi
+### How to receive logs
+
+* `sudo apt-get install netcat` netcat is required to receive logs
+* `nc -lu <PORT>` receive logs when ***UDP*** is used as network protocol
+* `nc -l <PORT>` receive logs when ***TCP*** is used as network protocol
+
+* **Example**: Assume, *port* is **1212** over TCP, command will be: `nc -l 1212`
+### How to use in ESP-IDF Projects
+```
+wifi_log_e() - Generate log with log level ERROR
+wifi_log_w() - Generate log with log level WARN
+wifi_log_i() - Generate log with log level INFO
+wifi_log_d() - Generate log with log level DEBUG
+wifi_log_v() - Generate log with log level VERBOSE
+```
+
+* Usage pattern same as, `ESP_LOGX()`
+* Use `wifi_log()_x` function to print logs over wifi
 * Example: `wifi_log(TAG, "%s", "logger test");`
-* Call `start_wifi_logger()` in `void app_main()` to start the logger. Logging function `wifi_log` can be called to log messages.
+* Call `start_wifi_logger()` in `void app_main()` to start the logger. Logging function `wifi_log` can be called to log messages
 
 * Configure `menuconfig`
   * `Example Connection Configuration` *Set WiFi SSID and password*
