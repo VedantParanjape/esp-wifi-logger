@@ -1,5 +1,12 @@
 #include "utils.h"
 
+/**
+ * @brief adds timestamp to the log message
+ * 
+ * @param timestamp timestamp provided by ESP in milliseconds
+ * @param log_message log message to be sent through wifi
+ * @return char* final log message with timestamp
+ */
 char* generate_log_message_timestamp(uint32_t timestamp, char* log_message)
 {
     std::string log_string = "(" + std::string(std::to_string(timestamp)) + ") " + std::string(log_message);

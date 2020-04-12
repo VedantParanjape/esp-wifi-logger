@@ -43,12 +43,28 @@
           <declname>log_message</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>adds timestamp to the log message </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timestamp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>timestamp provided by ESP in milliseconds </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>log_message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>log message to be sent through wifi </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>char* final log message with timestamp </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/utils.h" line="7" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/utils.cpp" bodystart="3" bodyend="11"/>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/utils.h" line="7" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/utils.cpp" bodystart="10" bodyend="18"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

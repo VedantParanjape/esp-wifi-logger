@@ -30,12 +30,28 @@
           <declname>log_message</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>adds timestamp to the log message </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timestamp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>timestamp provided by ESP in milliseconds </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>log_message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>log message to be sent through wifi </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>char* final log message with timestamp </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/utils.cpp" line="3" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/utils.cpp" bodystart="3" bodyend="11"/>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/utils.cpp" line="10" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/utils.cpp" bodystart="10" bodyend="18"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -45,15 +61,15 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="utils_8h" kindref="compound">utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="utils_8cpp_1af768902cbc75dc282b88515dd045b7b5" kindref="member">generate_log_message_timestamp</ref>(uint32_t<sp/>timestamp,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>log_message)</highlight></codeline>
-<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>log_string<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::string(std::to_string(timestamp))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;)<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::string(log_message);</highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*c_log_string<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)*(log_string.size()+1));</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(c_log_string,<sp/>log_string.c_str(),<sp/>log_string.size()+1);</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c_log_string;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="utils_8cpp_1af768902cbc75dc282b88515dd045b7b5" kindref="member">generate_log_message_timestamp</ref>(uint32_t<sp/>timestamp,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>log_message)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>log_string<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::string(std::to_string(timestamp))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;)<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::string(log_message);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*c_log_string<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)*(log_string.size()+1));</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(c_log_string,<sp/>log_string.c_str(),<sp/>log_string.size()+1);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c_log_string;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/utils.cpp"/>
   </compounddef>

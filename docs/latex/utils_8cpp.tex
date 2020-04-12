@@ -1,8 +1,7 @@
 \hypertarget{utils_8cpp}{}\section{/home/vedant/\+Programming/projects/components/esp-\/wifi-\/logger/utils.cpp File Reference}
 \label{utils_8cpp}\index{/home/vedant/\+Programming/projects/components/esp-\/wifi-\/logger/utils.\+cpp@{/home/vedant/\+Programming/projects/components/esp-\/wifi-\/logger/utils.\+cpp}}
 {\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
-Include dependency graph for utils.\+cpp\+:
-\nopagebreak
+Include dependency graph for utils.\+cpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -13,7 +12,7 @@ Include dependency graph for utils.\+cpp\+:
 \begin{DoxyCompactItemize}
 \item 
 char $\ast$ \hyperlink{utils_8cpp_af768902cbc75dc282b88515dd045b7b5}{generate\+\_\+log\+\_\+message\+\_\+timestamp} (uint32\+\_\+t timestamp, char $\ast$log\+\_\+message)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em adds timestamp to the log message \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
@@ -23,3 +22,17 @@ char $\ast$ \hyperlink{utils_8cpp_af768902cbc75dc282b88515dd045b7b5}{generate\+\
 \subsubsection{\texorpdfstring{generate\+\_\+log\+\_\+message\+\_\+timestamp()}{generate\_log\_message\_timestamp()}}
 {\footnotesize\ttfamily char$\ast$ generate\+\_\+log\+\_\+message\+\_\+timestamp (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{timestamp,  }\item[{char $\ast$}]{log\+\_\+message }\end{DoxyParamCaption})}
 
+
+
+adds timestamp to the log message 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & timestamp provided by E\+SP in milliseconds \\
+\hline
+{\em log\+\_\+message} & log message to be sent through wifi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ final log message with timestamp 
+\end{DoxyReturn}
