@@ -6,6 +6,7 @@ const char log_level_color[5][7] = {"\e[31m", "\e[33m", "\e[32m", "\e[39m", "\e[
 /**
  * @brief adds timestamp to the log message
  * 
+ * @param log_level log level of the log message
  * @param timestamp timestamp provided by ESP in milliseconds
  * @param log_message log message to be sent through wifi
  * @return char* final log message with timestamp
