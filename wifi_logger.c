@@ -141,7 +141,7 @@ void generate_log_message(esp_log_level_t level, const char *TAG, int line, cons
         break;
     }
 
-    send_to_queue(generate_log_message_timestamp(log_level_opt, esp_log_early_timestamp(), log_print_buffer));
+    send_to_queue(generate_log_message_timestamp(log_level_opt, esp_log_timestamp(), log_print_buffer));
 }
 
 /**
