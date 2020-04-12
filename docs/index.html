@@ -79,7 +79,9 @@ $(function() {
 <li><code>sudo apt-get install netcat</code> netcat is required to receive logs</li>
 <li><code>nc -lu &lt;PORT&gt;</code> receive logs when <em><b>UDP</b></em> is used as network protocol</li>
 <li><code>nc -l &lt;PORT&gt;</code> receive logs when <em><b>TCP</b></em> is used as network protocol</li>
-<li><b>Example</b>: Assume, <em>port</em> is <b>1212</b> over TCP, command will be: <code>nc -l 1212</code> ### How to use in ESP-IDF Projects <div class="fragment"><div class="line">wifi_log_e() - Generate log with log level ERROR</div><div class="line">wifi_log_w() - Generate log with log level WARN</div><div class="line">wifi_log_i() - Generate log with log level INFO</div><div class="line">wifi_log_d() - Generate log with log level DEBUG</div><div class="line">wifi_log_v() - Generate log with log level VERBOSE</div></div><!-- fragment --></li>
+<li><b>Example</b>: Assume, <em>port</em> is <b>1212</b> over TCP, command will be: <code>nc -l 1212</code></li>
+</ul>
+<p>### How to use in ESP-IDF Projects </p><div class="fragment"><div class="line">wifi_log_e() - Generate log with log level ERROR</div><div class="line">wifi_log_w() - Generate log with log level WARN</div><div class="line">wifi_log_i() - Generate log with log level INFO</div><div class="line">wifi_log_d() - Generate log with log level DEBUG</div><div class="line">wifi_log_v() - Generate log with log level VERBOSE</div></div><!-- fragment --><ul>
 <li>Usage pattern same as, <code>ESP_LOGX()</code></li>
 <li>Use <code>wifi_log()_x</code> function to print logs over wifi</li>
 <li>Example: <code>wifi_log(TAG, "%s", "logger test");</code></li>

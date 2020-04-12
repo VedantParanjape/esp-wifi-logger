@@ -25,7 +25,8 @@ git clone https://github.com/VedantParanjape/esp-wifi-logger.git wifi_logger
 * `nc -lu <PORT>` receive logs when ***UDP*** is used as network protocol
 * `nc -l <PORT>` receive logs when ***TCP*** is used as network protocol
 
-* **Example**: Assume, *port* is **1212** over TCP, command will be: `nc -l 1212`
+* **Example**: Assume, *port* is **1212** over TCP, command will be: `nc -l 1212`     
+
 ### How to use in ESP-IDF Projects
 ```
 wifi_log_e() - Generate log with log level ERROR
