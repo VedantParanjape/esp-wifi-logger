@@ -64,7 +64,7 @@ idf.py menuconfig
     * `Network Protocol (TCP/UDP)` - Set network protocol to be used 
     * `Server IP Address` - Set the IP Address of the server which will receive log messages sent by ESP32
     * `Port` - Set the Port of the server
-    * `Queue Size` - ***Advanced Config, change at your own risk***** Set the freeRTOS Queue size used to pass log messages to logger task.
+    * `Queue Size` - ***Advanced Config, change at your own risk*** Set the freeRTOS Queue size used to pass log messages to logger task.
     * `logger buffer size` - ***Advanced Config, change at your own risk*** Set the buffer size of char array used to generate log messages in ESP format
 
 ## Example
