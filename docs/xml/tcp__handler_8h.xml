@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="tcp__handler_8h" kind="file" language="C++">
+    <compoundname>tcp_handler.h</compoundname>
+    <includes local="no">string.h</includes>
+    <includes local="no">sys/param.h</includes>
+    <includes local="yes">freertos/FreeRTOS.h</includes>
+    <includes local="yes">freertos/task.h</includes>
+    <includes local="yes">freertos/event_groups.h</includes>
+    <includes local="yes">esp_system.h</includes>
+    <includes local="yes">esp_wifi.h</includes>
+    <includes local="yes">esp_event.h</includes>
+    <includes local="yes">esp_log.h</includes>
+    <includes local="yes">nvs_flash.h</includes>
+    <includes local="yes">esp_netif.h</includes>
+    <includes local="yes">protocol_examples_common.h</includes>
+    <includes local="yes">lwip/err.h</includes>
+    <includes local="yes">lwip/sockets.h</includes>
+    <includes local="yes">lwip/sys.h</includes>
+    <includes local="no">lwip/netdb.h</includes>
+    <includedby refid="wifi__logger_8h" local="yes">/home/vedant/Programming/projects/components/esp-wifi-logger/include/wifi_logger.h</includedby>
+    <includedby refid="tcp__handler_8c" local="yes">/home/vedant/Programming/projects/components/esp-wifi-logger/tcp_handler.c</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>freertos/FreeRTOS.h</label>
+      </node>
+      <node id="10">
+        <label>nvs_flash.h</label>
+      </node>
+      <node id="12">
+        <label>protocol_examples_common.h</label>
+      </node>
+      <node id="6">
+        <label>esp_system.h</label>
+      </node>
+      <node id="11">
+        <label>esp_netif.h</label>
+      </node>
+      <node id="7">
+        <label>esp_wifi.h</label>
+      </node>
+      <node id="16">
+        <label>lwip/netdb.h</label>
+      </node>
+      <node id="1">
+        <label>string.h</label>
+      </node>
+      <node id="9">
+        <label>esp_log.h</label>
+      </node>
+      <node id="2">
+        <label>sys/param.h</label>
+      </node>
+      <node id="14">
+        <label>lwip/sockets.h</label>
+      </node>
+      <node id="15">
+        <label>lwip/sys.h</label>
+      </node>
+      <node id="13">
+        <label>lwip/err.h</label>
+      </node>
+      <node id="8">
+        <label>esp_event.h</label>
+      </node>
+      <node id="4">
+        <label>freertos/task.h</label>
+      </node>
+      <node id="0">
+        <label>/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h</label>
+        <link refid="tcp__handler_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>freertos/event_groups.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="20">
+        <label>/home/vedant/Programming/projects/components/esp-wifi-logger/tcp_handler.c</label>
+        <link refid="tcp__handler_8c"/>
+      </node>
+      <node id="18">
+        <label>/home/vedant/Programming/projects/components/esp-wifi-logger/include/wifi_logger.h</label>
+        <link refid="wifi__logger_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>/home/vedant/Programming/projects/components/esp-wifi-logger/wifi_logger.c</label>
+        <link refid="wifi__logger_8c"/>
+      </node>
+      <node id="17">
+        <label>/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h</label>
+        <link refid="tcp__handler_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structtcp__network__data" prot="public">tcp_network_data</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="tcp__handler_8h_1a30e0c38ad4a5d0a16bfdd52ff64189b4" prot="public" static="no">
+        <name>TCP_HOST_IP_ADDR</name>
+        <initializer>CONFIG_SERVER_IP_ADDRESS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h" line="22" column="9" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tcp__handler_8h_1a637b73f06ee87043251d022f87a8f3d4" prot="public" static="no">
+        <name>TCP_PORT</name>
+        <initializer>CONFIG_SERVER_PORT</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h" line="23" column="9" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="tcp__handler_8h_1a6be7633691ba5c012155871a84ade82e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tcp_network_manager</definition>
+        <argsstring>(struct tcp_network_data *nm)</argsstring>
+        <name>tcp_network_manager</name>
+        <param>
+          <type>struct <ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref> *</type>
+          <declname>nm</declname>
+        </param>
+        <briefdescription>
+<para>Manages TCP connection to the server. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref> struct which contains necessary data for a TCP connection </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h" line="35" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/tcp_handler.c" bodystart="11" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="tcp__handler_8h_1a0ca62b309e39660b29ee7605b099ee54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int tcp_send_data</definition>
+        <argsstring>(struct tcp_network_data *nm, char *payload)</argsstring>
+        <name>tcp_send_data</name>
+        <param>
+          <type>struct <ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref> *</type>
+          <declname>nm</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>payload</declname>
+        </param>
+        <briefdescription>
+<para>Sends data to the server through a TCP socket. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to <ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref> struct </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payload</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>char array which contains data to be sent </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int - returns -1 if sending failed, number of bytes sent if successfully sent the data </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h" line="36" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/tcp_handler.c" bodystart="49" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="tcp__handler_8h_1ae58555e8930155fcea5b1d16915db87b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tcp_recieve_data</definition>
+        <argsstring>(struct tcp_network_data *nm)</argsstring>
+        <name>tcp_recieve_data</name>
+        <param>
+          <type>struct <ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref> *</type>
+          <declname>nm</declname>
+        </param>
+        <briefdescription>
+<para>Receives data from TCP server. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref> struct which contains connection info </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>char array which contains data received </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h" line="37" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/tcp_handler.c" bodystart="77" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="tcp__handler_8h_1a6d6a248c21ebfece9f52fa7b580fabb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tcp_close_network_manager</definition>
+        <argsstring>(struct tcp_network_data *nm)</argsstring>
+        <name>tcp_close_network_manager</name>
+        <param>
+          <type>struct <ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref> *</type>
+          <declname>nm</declname>
+        </param>
+        <briefdescription>
+<para>Shutdown active connection, deallocate memory. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref> struct which contains connection info </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h" line="38" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/tcp_handler.c" bodystart="109" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TCP_HANDLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TCP_HANDLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/param.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/FreeRTOS.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/task.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/event_groups.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_system.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_wifi.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_event.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nvs_flash.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_netif.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;protocol_examples_common.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lwip/err.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lwip/sockets.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lwip/sys.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;lwip/netdb.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="tcp__handler_8h_1a30e0c38ad4a5d0a16bfdd52ff64189b4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TCP_HOST_IP_ADDR<sp/>CONFIG_SERVER_IP_ADDRESS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="tcp__handler_8h_1a637b73f06ee87043251d022f87a8f3d4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TCP_PORT<sp/>CONFIG_SERVER_PORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="structtcp__network__data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27" refid="structtcp__network__data_1aec4bca454d64124cd3a4b001f4a551cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="structtcp__network__data_1aec4bca454d64124cd3a4b001f4a551cc" kindref="member">rx_buffer</ref>[128];</highlight></codeline>
+<codeline lineno="28" refid="structtcp__network__data_1a5bb07a33391c99faa2caab2ef4477944" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="structtcp__network__data_1a5bb07a33391c99faa2caab2ef4477944" kindref="member">addr_str</ref>[128];</highlight></codeline>
+<codeline lineno="29" refid="structtcp__network__data_1a901043d5d480118c9e8661464465ae95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structtcp__network__data_1a901043d5d480118c9e8661464465ae95" kindref="member">addr_family</ref>;</highlight></codeline>
+<codeline lineno="30" refid="structtcp__network__data_1ac9025540ea4138efba1544b3fbbb2db3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structtcp__network__data_1ac9025540ea4138efba1544b3fbbb2db3" kindref="member">ip_protocol</ref>;</highlight></codeline>
+<codeline lineno="31" refid="structtcp__network__data_1aac1fae2cd9f342a287fc728c2171e3d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">sockaddr_in<sp/><ref refid="structtcp__network__data_1aac1fae2cd9f342a287fc728c2171e3d1" kindref="member">dest_addr</ref>;</highlight></codeline>
+<codeline lineno="32" refid="structtcp__network__data_1a78063825cce60cb5f121e2c87ccb6dbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structtcp__network__data_1a78063825cce60cb5f121e2c87ccb6dbb" kindref="member">sock</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="tcp__handler_8h_1a6be7633691ba5c012155871a84ade82e" kindref="member">tcp_network_manager</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref>*<sp/>nm);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="tcp__handler_8h_1a0ca62b309e39660b29ee7605b099ee54" kindref="member">tcp_send_data</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref>*<sp/>nm,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>payload);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="tcp__handler_8h_1ae58555e8930155fcea5b1d16915db87b" kindref="member">tcp_recieve_data</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref>*<sp/>nm);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="tcp__handler_8h_1a6d6a248c21ebfece9f52fa7b580fabb5" kindref="member">tcp_close_network_manager</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structtcp__network__data" kindref="compound">tcp_network_data</ref>*<sp/>nm);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/tcp_handler.h"/>
+  </compounddef>
+</doxygen>

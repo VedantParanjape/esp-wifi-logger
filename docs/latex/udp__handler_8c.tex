@@ -1,0 +1,99 @@
+\hypertarget{udp__handler_8c}{}\section{/home/vedant/\+Programming/projects/components/esp-\/wifi-\/logger/udp\+\_\+handler.c File Reference}
+\label{udp__handler_8c}\index{/home/vedant/\+Programming/projects/components/esp-\/wifi-\/logger/udp\+\_\+handler.\+c@{/home/vedant/\+Programming/projects/components/esp-\/wifi-\/logger/udp\+\_\+handler.\+c}}
+{\ttfamily \#include \char`\"{}udp\+\_\+handler.\+h\char`\"{}}\newline
+Include dependency graph for udp\+\_\+handler.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{udp__handler_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{udp__handler_8c_a412aa3402fc47e327861b48a04c3c08a}{network\+\_\+manager} (struct \hyperlink{structnetwork__data}{network\+\_\+data} $\ast$nm)
+\begin{DoxyCompactList}\small\item\em Manages U\+DP connection to the server. \end{DoxyCompactList}\item 
+int \hyperlink{udp__handler_8c_a7ddbd791c1d13c96db95eba36aae6145}{send\+\_\+data} (struct \hyperlink{structnetwork__data}{network\+\_\+data} $\ast$nm, char $\ast$payload)
+\begin{DoxyCompactList}\small\item\em Sends data to the server through a U\+DP socket. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{udp__handler_8c_afe419fdd19f7194dcf9c9e6d00118224}{recieve\+\_\+data} (struct \hyperlink{structnetwork__data}{network\+\_\+data} $\ast$nm)
+\begin{DoxyCompactList}\small\item\em Receives data from U\+DP server. \end{DoxyCompactList}\item 
+void \hyperlink{udp__handler_8c_a3e138ed94c89bd74c249c9f4a1a4c642}{close\+\_\+network\+\_\+manager} (struct \hyperlink{structnetwork__data}{network\+\_\+data} $\ast$nm)
+\begin{DoxyCompactList}\small\item\em Shutdown active connection, deallocate memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{udp__handler_8c_a3e138ed94c89bd74c249c9f4a1a4c642}\label{udp__handler_8c_a3e138ed94c89bd74c249c9f4a1a4c642}} 
+\index{udp\+\_\+handler.\+c@{udp\+\_\+handler.\+c}!close\+\_\+network\+\_\+manager@{close\+\_\+network\+\_\+manager}}
+\index{close\+\_\+network\+\_\+manager@{close\+\_\+network\+\_\+manager}!udp\+\_\+handler.\+c@{udp\+\_\+handler.\+c}}
+\subsubsection{\texorpdfstring{close\+\_\+network\+\_\+manager()}{close\_network\_manager()}}
+{\footnotesize\ttfamily void close\+\_\+network\+\_\+manager (\begin{DoxyParamCaption}\item[{struct \hyperlink{structnetwork__data}{network\+\_\+data} $\ast$}]{nm }\end{DoxyParamCaption})}
+
+
+
+Shutdown active connection, deallocate memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} struct which contains connection info \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{udp__handler_8c_a412aa3402fc47e327861b48a04c3c08a}\label{udp__handler_8c_a412aa3402fc47e327861b48a04c3c08a}} 
+\index{udp\+\_\+handler.\+c@{udp\+\_\+handler.\+c}!network\+\_\+manager@{network\+\_\+manager}}
+\index{network\+\_\+manager@{network\+\_\+manager}!udp\+\_\+handler.\+c@{udp\+\_\+handler.\+c}}
+\subsubsection{\texorpdfstring{network\+\_\+manager()}{network\_manager()}}
+{\footnotesize\ttfamily void network\+\_\+manager (\begin{DoxyParamCaption}\item[{struct \hyperlink{structnetwork__data}{network\+\_\+data} $\ast$}]{nm }\end{DoxyParamCaption})}
+
+
+
+Manages U\+DP connection to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & \hyperlink{structnetwork__data}{network\+\_\+data} struct which contains necessary data for a U\+DP connection \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{udp__handler_8c_afe419fdd19f7194dcf9c9e6d00118224}\label{udp__handler_8c_afe419fdd19f7194dcf9c9e6d00118224}} 
+\index{udp\+\_\+handler.\+c@{udp\+\_\+handler.\+c}!recieve\+\_\+data@{recieve\+\_\+data}}
+\index{recieve\+\_\+data@{recieve\+\_\+data}!udp\+\_\+handler.\+c@{udp\+\_\+handler.\+c}}
+\subsubsection{\texorpdfstring{recieve\+\_\+data()}{recieve\_data()}}
+{\footnotesize\ttfamily char$\ast$ recieve\+\_\+data (\begin{DoxyParamCaption}\item[{struct \hyperlink{structnetwork__data}{network\+\_\+data} $\ast$}]{nm }\end{DoxyParamCaption})}
+
+
+
+Receives data from U\+DP server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & \hyperlink{structnetwork__data}{network\+\_\+data} struct which contains connection info \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char array which contains data received 
+\end{DoxyReturn}
+\mbox{\Hypertarget{udp__handler_8c_a7ddbd791c1d13c96db95eba36aae6145}\label{udp__handler_8c_a7ddbd791c1d13c96db95eba36aae6145}} 
+\index{udp\+\_\+handler.\+c@{udp\+\_\+handler.\+c}!send\+\_\+data@{send\+\_\+data}}
+\index{send\+\_\+data@{send\+\_\+data}!udp\+\_\+handler.\+c@{udp\+\_\+handler.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+data()}{send\_data()}}
+{\footnotesize\ttfamily int send\+\_\+data (\begin{DoxyParamCaption}\item[{struct \hyperlink{structnetwork__data}{network\+\_\+data} $\ast$}]{nm,  }\item[{char $\ast$}]{payload }\end{DoxyParamCaption})}
+
+
+
+Sends data to the server through a U\+DP socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & A pointer to \hyperlink{structnetwork__data}{network\+\_\+data} struct \\
+\hline
+{\em payload} & char array which contains data to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ returns -\/1 if sending failed, number of bytes sent if successfully sent the data 
+\end{DoxyReturn}

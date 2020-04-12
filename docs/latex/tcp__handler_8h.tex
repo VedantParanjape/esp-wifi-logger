@@ -1,0 +1,149 @@
+\hypertarget{tcp__handler_8h}{}\section{/home/vedant/\+Programming/projects/components/esp-\/wifi-\/logger/include/tcp\+\_\+handler.h File Reference}
+\label{tcp__handler_8h}\index{/home/vedant/\+Programming/projects/components/esp-\/wifi-\/logger/include/tcp\+\_\+handler.\+h@{/home/vedant/\+Programming/projects/components/esp-\/wifi-\/logger/include/tcp\+\_\+handler.\+h}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/param.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}freertos/\+Free\+R\+T\+O\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/event\+\_\+groups.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+wifi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+event.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+log.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}nvs\+\_\+flash.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+netif.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}protocol\+\_\+examples\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sockets.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$lwip/netdb.\+h$>$}\newline
+Include dependency graph for tcp\+\_\+handler.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tcp__handler_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tcp__handler_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tcp__handler_8h_a30e0c38ad4a5d0a16bfdd52ff64189b4}{T\+C\+P\+\_\+\+H\+O\+S\+T\+\_\+\+I\+P\+\_\+\+A\+D\+DR}~C\+O\+N\+F\+I\+G\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+I\+P\+\_\+\+A\+D\+D\+R\+E\+SS
+\item 
+\#define \hyperlink{tcp__handler_8h_a637b73f06ee87043251d022f87a8f3d4}{T\+C\+P\+\_\+\+P\+O\+RT}~C\+O\+N\+F\+I\+G\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{tcp__handler_8h_a6be7633691ba5c012155871a84ade82e}{tcp\+\_\+network\+\_\+manager} (struct \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} $\ast$nm)
+\begin{DoxyCompactList}\small\item\em Manages T\+CP connection to the server. \end{DoxyCompactList}\item 
+int \hyperlink{tcp__handler_8h_a0ca62b309e39660b29ee7605b099ee54}{tcp\+\_\+send\+\_\+data} (struct \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} $\ast$nm, char $\ast$payload)
+\begin{DoxyCompactList}\small\item\em Sends data to the server through a T\+CP socket. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{tcp__handler_8h_ae58555e8930155fcea5b1d16915db87b}{tcp\+\_\+recieve\+\_\+data} (struct \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} $\ast$nm)
+\begin{DoxyCompactList}\small\item\em Receives data from T\+CP server. \end{DoxyCompactList}\item 
+void \hyperlink{tcp__handler_8h_a6d6a248c21ebfece9f52fa7b580fabb5}{tcp\+\_\+close\+\_\+network\+\_\+manager} (struct \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} $\ast$nm)
+\begin{DoxyCompactList}\small\item\em Shutdown active connection, deallocate memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{tcp__handler_8h_a30e0c38ad4a5d0a16bfdd52ff64189b4}\label{tcp__handler_8h_a30e0c38ad4a5d0a16bfdd52ff64189b4}} 
+\index{tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}!T\+C\+P\+\_\+\+H\+O\+S\+T\+\_\+\+I\+P\+\_\+\+A\+D\+DR@{T\+C\+P\+\_\+\+H\+O\+S\+T\+\_\+\+I\+P\+\_\+\+A\+D\+DR}}
+\index{T\+C\+P\+\_\+\+H\+O\+S\+T\+\_\+\+I\+P\+\_\+\+A\+D\+DR@{T\+C\+P\+\_\+\+H\+O\+S\+T\+\_\+\+I\+P\+\_\+\+A\+D\+DR}!tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}}
+\subsubsection{\texorpdfstring{T\+C\+P\+\_\+\+H\+O\+S\+T\+\_\+\+I\+P\+\_\+\+A\+D\+DR}{TCP\_HOST\_IP\_ADDR}}
+{\footnotesize\ttfamily \#define T\+C\+P\+\_\+\+H\+O\+S\+T\+\_\+\+I\+P\+\_\+\+A\+D\+DR~C\+O\+N\+F\+I\+G\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+I\+P\+\_\+\+A\+D\+D\+R\+E\+SS}
+
+\mbox{\Hypertarget{tcp__handler_8h_a637b73f06ee87043251d022f87a8f3d4}\label{tcp__handler_8h_a637b73f06ee87043251d022f87a8f3d4}} 
+\index{tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}!T\+C\+P\+\_\+\+P\+O\+RT@{T\+C\+P\+\_\+\+P\+O\+RT}}
+\index{T\+C\+P\+\_\+\+P\+O\+RT@{T\+C\+P\+\_\+\+P\+O\+RT}!tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}}
+\subsubsection{\texorpdfstring{T\+C\+P\+\_\+\+P\+O\+RT}{TCP\_PORT}}
+{\footnotesize\ttfamily \#define T\+C\+P\+\_\+\+P\+O\+RT~C\+O\+N\+F\+I\+G\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tcp__handler_8h_a6d6a248c21ebfece9f52fa7b580fabb5}\label{tcp__handler_8h_a6d6a248c21ebfece9f52fa7b580fabb5}} 
+\index{tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}!tcp\+\_\+close\+\_\+network\+\_\+manager@{tcp\+\_\+close\+\_\+network\+\_\+manager}}
+\index{tcp\+\_\+close\+\_\+network\+\_\+manager@{tcp\+\_\+close\+\_\+network\+\_\+manager}!tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}}
+\subsubsection{\texorpdfstring{tcp\+\_\+close\+\_\+network\+\_\+manager()}{tcp\_close\_network\_manager()}}
+{\footnotesize\ttfamily void tcp\+\_\+close\+\_\+network\+\_\+manager (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} $\ast$}]{nm }\end{DoxyParamCaption})}
+
+
+
+Shutdown active connection, deallocate memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} struct which contains connection info \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tcp__handler_8h_a6be7633691ba5c012155871a84ade82e}\label{tcp__handler_8h_a6be7633691ba5c012155871a84ade82e}} 
+\index{tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}!tcp\+\_\+network\+\_\+manager@{tcp\+\_\+network\+\_\+manager}}
+\index{tcp\+\_\+network\+\_\+manager@{tcp\+\_\+network\+\_\+manager}!tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}}
+\subsubsection{\texorpdfstring{tcp\+\_\+network\+\_\+manager()}{tcp\_network\_manager()}}
+{\footnotesize\ttfamily void tcp\+\_\+network\+\_\+manager (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} $\ast$}]{nm }\end{DoxyParamCaption})}
+
+
+
+Manages T\+CP connection to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} struct which contains necessary data for a T\+CP connection \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tcp__handler_8h_ae58555e8930155fcea5b1d16915db87b}\label{tcp__handler_8h_ae58555e8930155fcea5b1d16915db87b}} 
+\index{tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}!tcp\+\_\+recieve\+\_\+data@{tcp\+\_\+recieve\+\_\+data}}
+\index{tcp\+\_\+recieve\+\_\+data@{tcp\+\_\+recieve\+\_\+data}!tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}}
+\subsubsection{\texorpdfstring{tcp\+\_\+recieve\+\_\+data()}{tcp\_recieve\_data()}}
+{\footnotesize\ttfamily char$\ast$ tcp\+\_\+recieve\+\_\+data (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} $\ast$}]{nm }\end{DoxyParamCaption})}
+
+
+
+Receives data from T\+CP server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} struct which contains connection info \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char array which contains data received 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tcp__handler_8h_a0ca62b309e39660b29ee7605b099ee54}\label{tcp__handler_8h_a0ca62b309e39660b29ee7605b099ee54}} 
+\index{tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}!tcp\+\_\+send\+\_\+data@{tcp\+\_\+send\+\_\+data}}
+\index{tcp\+\_\+send\+\_\+data@{tcp\+\_\+send\+\_\+data}!tcp\+\_\+handler.\+h@{tcp\+\_\+handler.\+h}}
+\subsubsection{\texorpdfstring{tcp\+\_\+send\+\_\+data()}{tcp\_send\_data()}}
+{\footnotesize\ttfamily int tcp\+\_\+send\+\_\+data (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} $\ast$}]{nm,  }\item[{char $\ast$}]{payload }\end{DoxyParamCaption})}
+
+
+
+Sends data to the server through a T\+CP socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & A pointer to \hyperlink{structtcp__network__data}{tcp\+\_\+network\+\_\+data} struct \\
+\hline
+{\em payload} & char array which contains data to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ returns -\/1 if sending failed, number of bytes sent if successfully sent the data 
+\end{DoxyReturn}

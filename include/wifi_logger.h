@@ -3,6 +3,7 @@
 
 #include "tcp_handler.h"
 #include "udp_handler.h"
+#include "utils.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_system.h"
@@ -19,7 +20,7 @@ QueueHandle_t wifi_logger_queue;
 
 esp_err_t init_queue(void);
 void init_wifi(void);
-esp_err_t send_to_queue(char* log_message);
+esp_err_t send_to_queue(const char* log_message);
 char* receive_from_queue(void);
 void generate_log_message(const char *TAG, int line, const char *func, const char *fmt, ...);
 void start_wifi_logger(void);

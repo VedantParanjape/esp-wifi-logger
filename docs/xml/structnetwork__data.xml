@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structnetwork__data" kind="struct" language="C++" prot="public">
+    <compoundname>network_data</compoundname>
+    <includes refid="udp__handler_8h" local="no">udp_handler.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnetwork__data_1a9346e7a82edd41c346d1528ef301469b" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char network_data::rx_buffer[128]</definition>
+        <argsstring>[128]</argsstring>
+        <name>rx_buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" line="26" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnetwork__data_1a6e8bd28f3dda27bcedd8b6e39257bf9e" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char network_data::addr_str[128]</definition>
+        <argsstring>[128]</argsstring>
+        <name>addr_str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" line="27" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnetwork__data_1a68f41514e366d2255d8ab802ec4ea146" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int network_data::addr_family</definition>
+        <argsstring></argsstring>
+        <name>addr_family</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" line="28" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnetwork__data_1a2e35f88440947101eeeb8dc91a43d5e5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int network_data::ip_protocol</definition>
+        <argsstring></argsstring>
+        <name>ip_protocol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" line="29" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnetwork__data_1a553d72b8506e9098215451adffd330d4" prot="public" static="no" mutable="no">
+        <type>struct sockaddr_in</type>
+        <definition>struct sockaddr_in network_data::dest_addr</definition>
+        <argsstring></argsstring>
+        <name>dest_addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" line="29" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnetwork__data_1ab056807bd5bb97ce18f27e6b233de0b3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int network_data::sock</definition>
+        <argsstring></argsstring>
+        <name>sock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" line="31" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" line="25" column="1" bodyfile="/home/vedant/Programming/projects/components/esp-wifi-logger/include/udp_handler.h" bodystart="24" bodyend="32"/>
+    <listofallmembers>
+      <member refid="structnetwork__data_1a68f41514e366d2255d8ab802ec4ea146" prot="public" virt="non-virtual"><scope>network_data</scope><name>addr_family</name></member>
+      <member refid="structnetwork__data_1a6e8bd28f3dda27bcedd8b6e39257bf9e" prot="public" virt="non-virtual"><scope>network_data</scope><name>addr_str</name></member>
+      <member refid="structnetwork__data_1a553d72b8506e9098215451adffd330d4" prot="public" virt="non-virtual"><scope>network_data</scope><name>dest_addr</name></member>
+      <member refid="structnetwork__data_1a2e35f88440947101eeeb8dc91a43d5e5" prot="public" virt="non-virtual"><scope>network_data</scope><name>ip_protocol</name></member>
+      <member refid="structnetwork__data_1a9346e7a82edd41c346d1528ef301469b" prot="public" virt="non-virtual"><scope>network_data</scope><name>rx_buffer</name></member>
+      <member refid="structnetwork__data_1ab056807bd5bb97ce18f27e6b233de0b3" prot="public" virt="non-virtual"><scope>network_data</scope><name>sock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

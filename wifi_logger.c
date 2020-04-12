@@ -41,7 +41,7 @@ void init_wifi(void)
  * @param log_message log message to be sent to the queue
  * @return esp_err_t ESP_OK - if queue init sucessfully, ESP_FAIL - if queue init failed
 **/
-esp_err_t send_to_queue(char* log_message)
+esp_err_t send_to_queue(const char* log_message)
 {
     BaseType_t qerror = xQueueSendToBack(wifi_logger_queue, (void*)&log_message, (TickType_t) 0/portTICK_PERIOD_MS);
     
@@ -80,11 +80,15 @@ char* receive_from_queue(void)
     }
     else if(qerror == pdFALSE)
     {
+        free((void*)data);
+
         ESP_LOGW(tag_wifi_logger, "%s", "Data not received from Queue");
         data = NULL;
     }
     else
     {
+        free((void*)data);
+        
         ESP_LOGE(tag_wifi_logger, "%s", "Unknown error");
         data = NULL;
     }
@@ -103,7 +107,6 @@ char* receive_from_queue(void)
 void generate_log_message(const char *TAG, int line, const char *func, const char *fmt, ...)
 {
     char log_print_buffer[BUFFER_SIZE];
-    char timestamp_str_buffer[10];
 
     memset(log_print_buffer, '\0', BUFFER_SIZE);
     sprintf(log_print_buffer, "%s (%s:%d) ", TAG, func, line);
@@ -114,14 +117,7 @@ void generate_log_message(const char *TAG, int line, const char *func, const cha
     vsprintf(&log_print_buffer[len], fmt, args);
     va_end(args);
 
-
-    uint32_t timestamp = esp_log_early_timestamp();
-
-    sprintf(timestamp_str_buffer, "%d", timestamp);
-
-    strcat(log_print_buffer, timestamp_str_buffer);
-
-    esp_err_t err = send_to_queue(log_print_buffer);
+    send_to_queue(generate_log_message_timestamp(esp_log_early_timestamp(), log_print_buffer));
 }
 
 /**
@@ -155,6 +151,8 @@ void wifi_logger()
         {
             int len = send_data(handle, log_message);
             ESP_LOGD(tag_wifi_logger, "%d %s", len, "bytes of data sent");
+            
+            free((void*)log_message);
         }
         else
         {
@@ -186,6 +184,8 @@ void wifi_logger()
         {
             int len = tcp_send_data(handle, log_message);
             ESP_LOGD(tag_wifi_logger, "%d %s", len, "bytes of data sent");
+        
+            free((void*)log_message);
         }
         else
         {
@@ -195,7 +195,7 @@ void wifi_logger()
         }
     }
 
-    close_network_manager(handle);
+    tcp_close_network_manager(handle);
 }
 #endif
 

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="structnetwork__data" kind="struct"><name>network_data</name>
+    <member refid="structnetwork__data_1a9346e7a82edd41c346d1528ef301469b" kind="variable"><name>rx_buffer</name></member>
+    <member refid="structnetwork__data_1a6e8bd28f3dda27bcedd8b6e39257bf9e" kind="variable"><name>addr_str</name></member>
+    <member refid="structnetwork__data_1a68f41514e366d2255d8ab802ec4ea146" kind="variable"><name>addr_family</name></member>
+    <member refid="structnetwork__data_1a2e35f88440947101eeeb8dc91a43d5e5" kind="variable"><name>ip_protocol</name></member>
+    <member refid="structnetwork__data_1a553d72b8506e9098215451adffd330d4" kind="variable"><name>dest_addr</name></member>
+    <member refid="structnetwork__data_1ab056807bd5bb97ce18f27e6b233de0b3" kind="variable"><name>sock</name></member>
+  </compound>
+  <compound refid="structtcp__network__data" kind="struct"><name>tcp_network_data</name>
+    <member refid="structtcp__network__data_1aec4bca454d64124cd3a4b001f4a551cc" kind="variable"><name>rx_buffer</name></member>
+    <member refid="structtcp__network__data_1a5bb07a33391c99faa2caab2ef4477944" kind="variable"><name>addr_str</name></member>
+    <member refid="structtcp__network__data_1a901043d5d480118c9e8661464465ae95" kind="variable"><name>addr_family</name></member>
+    <member refid="structtcp__network__data_1ac9025540ea4138efba1544b3fbbb2db3" kind="variable"><name>ip_protocol</name></member>
+    <member refid="structtcp__network__data_1aac1fae2cd9f342a287fc728c2171e3d1" kind="variable"><name>dest_addr</name></member>
+    <member refid="structtcp__network__data_1a78063825cce60cb5f121e2c87ccb6dbb" kind="variable"><name>sock</name></member>
+  </compound>
+  <compound refid="tcp__handler_8h" kind="file"><name>tcp_handler.h</name>
+    <member refid="tcp__handler_8h_1a30e0c38ad4a5d0a16bfdd52ff64189b4" kind="define"><name>TCP_HOST_IP_ADDR</name></member>
+    <member refid="tcp__handler_8h_1a637b73f06ee87043251d022f87a8f3d4" kind="define"><name>TCP_PORT</name></member>
+    <member refid="tcp__handler_8h_1a6be7633691ba5c012155871a84ade82e" kind="function"><name>tcp_network_manager</name></member>
+    <member refid="tcp__handler_8h_1a0ca62b309e39660b29ee7605b099ee54" kind="function"><name>tcp_send_data</name></member>
+    <member refid="tcp__handler_8h_1ae58555e8930155fcea5b1d16915db87b" kind="function"><name>tcp_recieve_data</name></member>
+    <member refid="tcp__handler_8h_1a6d6a248c21ebfece9f52fa7b580fabb5" kind="function"><name>tcp_close_network_manager</name></member>
+  </compound>
+  <compound refid="udp__handler_8h" kind="file"><name>udp_handler.h</name>
+    <member refid="udp__handler_8h_1a0755be366390c472fea523dda78961d3" kind="define"><name>HOST_IP_ADDR</name></member>
+    <member refid="udp__handler_8h_1a614217d263be1fb1a5f76e2ff7be19a2" kind="define"><name>PORT</name></member>
+    <member refid="udp__handler_8h_1a412aa3402fc47e327861b48a04c3c08a" kind="function"><name>network_manager</name></member>
+    <member refid="udp__handler_8h_1a7ddbd791c1d13c96db95eba36aae6145" kind="function"><name>send_data</name></member>
+    <member refid="udp__handler_8h_1afe419fdd19f7194dcf9c9e6d00118224" kind="function"><name>recieve_data</name></member>
+    <member refid="udp__handler_8h_1a3e138ed94c89bd74c249c9f4a1a4c642" kind="function"><name>close_network_manager</name></member>
+  </compound>
+  <compound refid="utils_8h" kind="file"><name>utils.h</name>
+    <member refid="utils_8h_1af768902cbc75dc282b88515dd045b7b5" kind="function"><name>generate_log_message_timestamp</name></member>
+  </compound>
+  <compound refid="wifi__logger_8h" kind="file"><name>wifi_logger.h</name>
+    <member refid="wifi__logger_8h_1a81a6fc89c7bc286cb7360b155b1901bf" kind="define"><name>MESSAGE_QUEUE_SIZE</name></member>
+    <member refid="wifi__logger_8h_1a6b20d41d6252e9871430c242cb1a56e7" kind="define"><name>BUFFER_SIZE</name></member>
+    <member refid="wifi__logger_8h_1a6423a880df59733d2d9b509c7718d3a9" kind="define"><name>STACK_SIZE</name></member>
+    <member refid="wifi__logger_8h_1a2e13ac2e5cc7918fe456d748c7db19ef" kind="define"><name>wifi_log</name></member>
+    <member refid="wifi__logger_8h_1afde8dfae74b6444a5a97ef478d33eb6e" kind="variable"><name>wifi_logger_queue</name></member>
+    <member refid="wifi__logger_8h_1a320afeaba56579760e7e3185a3d1fa02" kind="function"><name>init_queue</name></member>
+    <member refid="wifi__logger_8h_1aea5e8c4231b83bde5f8f0f4556271aba" kind="function"><name>init_wifi</name></member>
+    <member refid="wifi__logger_8h_1a2261c877b2e047a36b7df77259b689ec" kind="function"><name>send_to_queue</name></member>
+    <member refid="wifi__logger_8h_1ad28af408449f666a77441f0120a6a228" kind="function"><name>receive_from_queue</name></member>
+    <member refid="wifi__logger_8h_1a479c62eb886c1c0aa898a033916bb653" kind="function"><name>generate_log_message</name></member>
+    <member refid="wifi__logger_8h_1a8e612786031d82bb0eac8affe469ed2c" kind="function"><name>start_wifi_logger</name></member>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="tcp__handler_8c" kind="file"><name>tcp_handler.c</name>
+    <member refid="tcp__handler_8c_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
+    <member refid="tcp__handler_8c_1a6be7633691ba5c012155871a84ade82e" kind="function"><name>tcp_network_manager</name></member>
+    <member refid="tcp__handler_8c_1a0ca62b309e39660b29ee7605b099ee54" kind="function"><name>tcp_send_data</name></member>
+    <member refid="tcp__handler_8c_1ae58555e8930155fcea5b1d16915db87b" kind="function"><name>tcp_recieve_data</name></member>
+    <member refid="tcp__handler_8c_1a6d6a248c21ebfece9f52fa7b580fabb5" kind="function"><name>tcp_close_network_manager</name></member>
+  </compound>
+  <compound refid="udp__handler_8c" kind="file"><name>udp_handler.c</name>
+    <member refid="udp__handler_8c_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
+    <member refid="udp__handler_8c_1a412aa3402fc47e327861b48a04c3c08a" kind="function"><name>network_manager</name></member>
+    <member refid="udp__handler_8c_1a7ddbd791c1d13c96db95eba36aae6145" kind="function"><name>send_data</name></member>
+    <member refid="udp__handler_8c_1afe419fdd19f7194dcf9c9e6d00118224" kind="function"><name>recieve_data</name></member>
+    <member refid="udp__handler_8c_1a3e138ed94c89bd74c249c9f4a1a4c642" kind="function"><name>close_network_manager</name></member>
+  </compound>
+  <compound refid="utils_8cpp" kind="file"><name>utils.cpp</name>
+    <member refid="utils_8cpp_1af768902cbc75dc282b88515dd045b7b5" kind="function"><name>generate_log_message_timestamp</name></member>
+  </compound>
+  <compound refid="wifi__logger_8c" kind="file"><name>wifi_logger.c</name>
+    <member refid="wifi__logger_8c_1a3c3f0397524a2dbb47569a0ab4189778" kind="variable"><name>tag_wifi_logger</name></member>
+    <member refid="wifi__logger_8c_1a320afeaba56579760e7e3185a3d1fa02" kind="function"><name>init_queue</name></member>
+    <member refid="wifi__logger_8c_1aea5e8c4231b83bde5f8f0f4556271aba" kind="function"><name>init_wifi</name></member>
+    <member refid="wifi__logger_8c_1a2261c877b2e047a36b7df77259b689ec" kind="function"><name>send_to_queue</name></member>
+    <member refid="wifi__logger_8c_1ad28af408449f666a77441f0120a6a228" kind="function"><name>receive_from_queue</name></member>
+    <member refid="wifi__logger_8c_1a479c62eb886c1c0aa898a033916bb653" kind="function"><name>generate_log_message</name></member>
+    <member refid="wifi__logger_8c_1a8e612786031d82bb0eac8affe469ed2c" kind="function"><name>start_wifi_logger</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/home/vedant/Programming/projects/components/esp-wifi-logger/include</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>
