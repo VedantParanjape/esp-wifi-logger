@@ -104,7 +104,7 @@ char* receive_from_queue(void)
  * @param func func
  * @param fmt fmt
  */
-void generate_log_message(const char *TAG, int line, const char *func, const char *fmt, ...)
+void generate_log_message(esp_log_level_t level, const char *TAG, int line, const char *func, const char *fmt, ...)
 {
     char log_print_buffer[BUFFER_SIZE];
 
@@ -116,8 +116,32 @@ void generate_log_message(const char *TAG, int line, const char *func, const cha
     int len = strlen(log_print_buffer);
     vsprintf(&log_print_buffer[len], fmt, args);
     va_end(args);
+    
+    uint log_level_opt = 2;
 
-    send_to_queue(generate_log_message_timestamp(esp_log_early_timestamp(), log_print_buffer));
+    switch (level)
+    {
+    case ESP_LOG_ERROR:
+        log_level_opt = 0;
+        break;
+    case ESP_LOG_WARN:
+        log_level_opt = 1;
+        break;
+    case ESP_LOG_INFO:
+        log_level_opt = 2;
+        break;
+    case ESP_LOG_DEBUG:
+        log_level_opt = 3;
+        break;
+    case ESP_LOG_VERBOSE:
+        log_level_opt = 4;
+        break;
+    default:
+        log_level_opt = 2;
+        break;
+    }
+
+    send_to_queue(generate_log_message_timestamp(log_level_opt, esp_log_early_timestamp(), log_print_buffer));
 }
 
 /**
