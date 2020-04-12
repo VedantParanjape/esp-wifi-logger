@@ -66,3 +66,28 @@ idf.py menuconfig
     * `Port` - Set the Port of the server
     * `Queue Size` - ***Advanced Config, change at your own risk***** Set the freeRTOS Queue size used to pass log messages to logger task.
     * `logger buffer size` - ***Advanced Config, change at your own risk*** Set the buffer size of char array used to generate log messages in ESP format
+
+## Example
+```
+#include <stdio.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "wifi_logger.h"
+
+
+void app_main(void)
+{
+    start_wifi_logger(); // Start wifi logger
+
+    while(1)
+    {
+        wifi_log_e("test", "%s %d %f", "hello world wifi logger", 43, 45.341223242); // write log over wifi with log level -> ERROR
+        wifi_log_w("test", "%s %d %f", "hello world wifi logger", 43, 45.341223242); // write log over wifi with log level -> WARN
+        wifi_log_i("test", "%s %d %f", "hello world wifi logger", 43, 45.341223242); // write log over wifi with log level -> INFO
+        wifi_log_d("test", "%s %d %f", "hello world wifi logger", 43, 45.341223242); // write log over wifi with log level -> DEBUG
+        wifi_log_v("test", "%s %d %f", "hello world wifi logger", 43, 45.341223242); // write log over wifi with log level -> VERBOSE
+
+        vTaskDelay(100);  // Wait for 100ms, prevent watchdog from triggering a reset
+    }
+}
+```
