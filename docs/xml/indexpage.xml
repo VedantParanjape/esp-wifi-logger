@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
-  <compounddef id="indexpage" kind="page">
-    <compoundname>index</compoundname>
-    <title>ESP-IDF template app</title>
-    <detaileddescription>
-<para>This is a template application to be used with <ulink url="https://github.com/espressif/esp-idf">Espressif IoT Development Framework</ulink>.</para><para>Please check <ulink url="https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html">ESP-IDF docs</ulink> for getting started instructions.</para><para><emphasis>Code in this repository is in the Public Domain (or CC0 licensed, at your option.) Unless required by applicable law or agreed to in writing, this software is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</emphasis> </para>    </detaileddescription>
-  </compounddef>
-</doxygen>
