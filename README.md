@@ -6,7 +6,7 @@ ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or Websockets
 * Using UDP as network protocol provides lowest latency
 * TCP performance is mid-way
 * Using Websockets provides the worst latency
-* 
+
 ## Requirements
 
 * `protocol_examples_common (esp-idf/examples/common_components/)`
