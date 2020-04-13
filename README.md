@@ -4,8 +4,11 @@ ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or Websockets
 * Generates log messages with same format as ESP-IDF Logging API
 * Follows ESP-IDF color pattern for different log levels.
 * Using UDP as network protocol provides lowest latency
+  * Minimal test condition - minimum free heap = 220388 bytes
 * TCP performance is mid-way
+  * Minimal test condition - minimum free heap = 216537 bytes
 * Using Websockets provides the worst latency
+  * Minimal test condition - minimum free heap = 205416 bytes
 
 ## Requirements
 
