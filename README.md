@@ -20,9 +20,15 @@ ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or Websockets
 cd <your_esp_idf_project>
 mkdir components
 cd components
+cp $IDF_PATH/examples/common_components/protocol_examples_common . -r
 git clone https://github.com/VedantParanjape/esp-wifi-logger.git wifi_logger
 ```
 
+Change CMakeList.txt to add the line given below:
+
+`set(EXTRA_COMPONENT_DIRS <relative_path_to_component_folder>)`
+
+component folder must contain `protocol_examples_common` and `wifi_logger` component
 ## Usage
 
 ### How to receive logs
