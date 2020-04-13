@@ -80,6 +80,9 @@ $(function() {
 </ul>
 </li>
 </ul>
+<p>Example App: </p><div class="image">
+<img src="https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example"/>
+</div>
 <h2>Requirements</h2>
 <ul>
 <li><code>protocol_examples_common (esp-idf/examples/common_components/)</code></li>
@@ -153,6 +156,12 @@ $(function() {
 </li>
 </ul>
 <h2>Example</h2>
+<ul>
+<li>Detailed Example App: <div class="image">
+<img src="https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example"/>
+</div>
+</li>
+</ul>
 <div class="fragment"><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &quot;freertos/FreeRTOS.h&quot;</div><div class="line">#include &quot;freertos/task.h&quot;</div><div class="line">#include &quot;wifi_logger.h&quot;</div><div class="line"></div><div class="line"></div><div class="line">void app_main(void)</div><div class="line">{</div><div class="line">    start_wifi_logger(); // Start wifi logger</div><div class="line"></div><div class="line">    while(1)</div><div class="line">    {</div><div class="line">        wifi_log_e(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; ERROR</div><div class="line">        wifi_log_w(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; WARN</div><div class="line">        wifi_log_i(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; INFO</div><div class="line">        wifi_log_d(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; DEBUG</div><div class="line">        wifi_log_v(&quot;test&quot;, &quot;%s %d %f&quot;, &quot;hello world wifi logger&quot;, 43, 45.341223242); // write log over wifi with log level -&gt; VERBOSE</div><div class="line"></div><div class="line">        vTaskDelay(100);  // Wait for 100ms, prevent watchdog from triggering a reset</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
