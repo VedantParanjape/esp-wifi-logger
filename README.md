@@ -4,9 +4,14 @@ ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or Websockets
 * Generates log messages with same format as ESP-IDF Logging API
 * Follows ESP-IDF color pattern for different log levels.
 * Using UDP as network protocol provides lowest latency
+  * Minimal test condition - minimum free heap = 220388 bytes
 * TCP performance is mid-way
+  * Minimal test condition - minimum free heap = 216537 bytes
 * Using Websockets provides the worst latency
-* 
+  * Minimal test condition - minimum free heap = 205416 bytes
+
+Example App: ![](https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example)
+
 ## Requirements
 
 * `protocol_examples_common (esp-idf/examples/common_components/)`
@@ -17,9 +22,15 @@ ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or Websockets
 cd <your_esp_idf_project>
 mkdir components
 cd components
+cp $IDF_PATH/examples/common_components/protocol_examples_common . -r
 git clone https://github.com/VedantParanjape/esp-wifi-logger.git wifi_logger
 ```
 
+Change CMakeList.txt to add the line given below:
+
+`set(EXTRA_COMPONENT_DIRS <relative_path_to_component_folder>)`
+
+component folder must contain `protocol_examples_common` and `wifi_logger` component
 ## Usage
 
 ### How to receive logs
@@ -84,7 +95,9 @@ idf.py menuconfig
     * `logger buffer size` - ***Advanced Config, change at your own risk*** Set the buffer size of char array used to generate log messages in ESP format
 
 ## Example
-```
+* Detailed Example App: ![](https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example)
+
+```C
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -107,3 +120,7 @@ void app_main(void)
     }
 }
 ```
+
+## Detailed Documentation
+
+* https://vedantparanjape.github.io/esp-wifi-logger/
