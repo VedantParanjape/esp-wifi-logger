@@ -74,7 +74,7 @@ int tcp_send_data(struct tcp_network_data* nm, char* payload)
  * @param nm tcp_network_data struct which contains connection info
  * @return char array which contains data received
  **/
-char* tcp_recieve_data(struct tcp_network_data* nm)
+char* tcp_receive_data(struct tcp_network_data* nm)
 {
     if (nm->sock < 0)
     {

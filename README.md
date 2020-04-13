@@ -24,7 +24,7 @@ git clone https://github.com/VedantParanjape/esp-wifi-logger.git wifi_logger
 * `sudo apt-get install netcat` netcat is required to receive logs
 * `nc -lu <PORT>` receive logs when ***UDP*** is used as network protocol
 * `nc -l <PORT>` receive logs when ***TCP*** is used as network protocol
-
+* `websocat -s $(ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p'):1234`
 * **Example**: Assume, *port* is **1212** over TCP, command will be: `nc -l 1212`     
 
 ### How to use in ESP-IDF Projects

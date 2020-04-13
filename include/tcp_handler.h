@@ -18,7 +18,6 @@
 #include "lwip/sys.h"
 #include <lwip/netdb.h>
 
-
 #define TCP_HOST_IP_ADDR CONFIG_SERVER_IP_ADDRESS
 #define TCP_PORT CONFIG_SERVER_PORT
 
@@ -34,7 +33,7 @@ struct tcp_network_data
 
 void tcp_network_manager(struct tcp_network_data* nm);
 int tcp_send_data(struct tcp_network_data* nm, char* payload);
-char* tcp_recieve_data(struct tcp_network_data* nm);
+char* tcp_receive_data(struct tcp_network_data* nm);
 void tcp_close_network_manager(struct tcp_network_data* nm);
 
 #endif

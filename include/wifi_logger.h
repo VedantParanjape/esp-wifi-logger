@@ -3,13 +3,12 @@
 
 #include "tcp_handler.h"
 #include "udp_handler.h"
+#include "websocket_handler.h"
 #include "utils.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "freertos/queue.h"
-#include <stdlib.h>
-#include <string.h>
 
 QueueHandle_t wifi_logger_queue;
 
@@ -29,14 +28,7 @@ esp_err_t send_to_queue(const char* log_message);
 char* receive_from_queue(void);
 void generate_log_message(esp_log_level_t level, const char *TAG, int line, const char *func, const char *fmt, ...);
 void start_wifi_logger(void);
-
-#ifdef CONFIG_TRANSPORT_PROTOCOL_TCP
 void wifi_logger();
-#endif 
-
-#ifdef CONFIG_TRANSPORT_PROTOCOL_UDP
-void wifi_logger();
-#endif
 
 #endif
 

@@ -56,7 +56,7 @@ int send_data(struct network_data* nm, char* payload)
  * @param nm network_data struct which contains connection info
  * @return char array which contains data received
  **/
-char* recieve_data(struct network_data* nm)
+char* receive_data(struct network_data* nm)
 {
     struct sockaddr_in source_addr;
     socklen_t socklen = sizeof(source_addr);

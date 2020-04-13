@@ -224,3 +224,30 @@ void wifi_logger()
 }
 #endif
 
+#ifdef CONFIG_TRANSPORT_PROTOCOL_WEBSOCKET
+void wifi_logger()
+{
+    esp_websocket_client_handle_t handle = websocket_network_manager();
+
+    while (true)
+    {
+        char* log_message = receive_from_queue();
+
+        if (log_message != NULL)
+        {
+            int len = websocket_send_data(handle, log_message);
+            ESP_LOGD(tag_wifi_logger, "%d %s", len, "bytes of data sent");
+        
+            free((void*)log_message);
+        }
+        else
+        {
+            log_message = "Unknown error - log message corrupt";
+            int len = websocket_send_data(handle, log_message);
+            ESP_LOGE(tag_wifi_logger, "%d %s", len, "Unknown error");
+        }
+    }
+
+    websocket_close_network_manager(handle);
+}
+#endif

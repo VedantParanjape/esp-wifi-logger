@@ -33,7 +33,7 @@ struct network_data
 
 void network_manager(struct network_data* nm);
 int send_data(struct network_data* nm, char* payload);
-char* recieve_data(struct network_data* nm);
+char* receive_data(struct network_data* nm);
 void close_network_manager(struct network_data* nm);
 
 #endif

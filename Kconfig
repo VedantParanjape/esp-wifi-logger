@@ -12,19 +12,37 @@ choice TRANSPORT_PROTOCOL
     config TRANSPORT_PROTOCOL_TCP
         bool "TCP"
 
+    config TRANSPORT_PROTOCOL_WEBSOCKET
+        bool "WEBSOCKET"
+
 endchoice
+
+if TRANSPORT_PROTOCOL_UDP || TRANSPORT_PROTOCOL_TCP
 
 config SERVER_IP_ADDRESS
     string "Server IP Address"
     default "192.168.0.10"
     help 
         "IP Address of server, where logs are to be sent"
+    
 
 config SERVER_PORT
     int "Port"
     default 9999
     help 
         "Port of server, where logs are to be sent"
+
+endif
+
+if TRANSPORT_PROTOCOL_WEBSOCKET
+
+config SERVER_WEBSOCKET_URI
+    string "Websocket Server URI"
+    default "ws://192.168.0.1:1234"
+    help
+        "URI of Websocket server, where logs are to be sent"
+
+endif
 
 config MESSAGE_QUEUE_SIZE
     int "Queue Size"
