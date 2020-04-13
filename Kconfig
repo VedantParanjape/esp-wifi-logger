@@ -1,7 +1,7 @@
 menu "WiFi Logger configration"
 
 choice TRANSPORT_PROTOCOL
-    prompt "Network protocol (TCP/UDP)"
+    prompt "Network protocol (TCP/UDP/WEBSOCKET)"
     default TRANSPORT_PROTOCOL_UDP
     help
         "Network protocol to be used to relay log messages, either use UDP or TCP."

@@ -1,9 +1,12 @@
 WiFi Logger component
 ====================
-ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or websockets (future releases)
+ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or Websockets
 * Generates log messages with same format as ESP-IDF Logging API
 * Follows ESP-IDF color pattern for different log levels.
-
+* Using UDP as network protocol provides lowest latency
+* TCP performance is mid-way
+* Using Websockets provides the worst latency
+* 
 ## Requirements
 
 * `protocol_examples_common (esp-idf/examples/common_components/)`
@@ -21,10 +24,16 @@ git clone https://github.com/VedantParanjape/esp-wifi-logger.git wifi_logger
 
 ### How to receive logs
 
-* `sudo apt-get install netcat` netcat is required to receive logs
-* `nc -lu <PORT>` receive logs when ***UDP*** is used as network protocol
-* `nc -l <PORT>` receive logs when ***TCP*** is used as network protocol
-* `websocat -s $(ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p'):1234`
+* `sudo apt-get install netcat`     
+  Netcat is required to receive logs    
+* `nc -lu <PORT>`     
+  Receive logs when ***udp*** is used as network protocol   
+* `nc -l <PORT>`    
+  Receive logs when ***tcp*** is used as network protocol   
+* `websocat -s <IP_ADDRESS_OF_YOUR_MACHINE>:<PORT>`     
+  Receive logs when ***websocket*** is used as network protocol   
+* `websocat -s $(ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p'):1234`     
+  receive logs when ***websocket*** is used as network protocol, auto fills the ip address    
 * **Example**: Assume, *port* is **1212** over TCP, command will be: `nc -l 1212`     
 
 ### How to use in ESP-IDF Projects
@@ -45,9 +54,12 @@ wifi_log_v() - Generate log with log level VERBOSE
   * `Example Connection Configuration` *Set WiFi SSID and password*
   * `Component config`
   * `WiFi Logger configuration`
-    * `Network Protocol (TCP/UDP)` - Set network protocol to be used 
-    * `Server IP Address` - Set the IP Address of the server which will receive log messages sent by ESP32
-    * `Port` - Set the Port of the server
+    * `Network Protocol (TCP/UDP/WEBSOCKET)` - Set network protocol to be used 
+      * `UDP/TCP Network Protocol`
+        * `Server IP Address` - Set the IP Address of the server which will receive log messages sent by ESP32
+        * `Port` - Set the Port of the server
+      * `WEBSOCKET Network Protocol`
+        * `Websocket Server URI` - Sets the URI of Websocket server, where logs are to be sent
 
 *IP Address of the server can be found out by running `ifconfig` on a linux machine*
 
@@ -62,9 +74,12 @@ idf.py menuconfig
 
 * `Component config`
   * `WiFi Logger configuration`
-    * `Network Protocol (TCP/UDP)` - Set network protocol to be used 
-    * `Server IP Address` - Set the IP Address of the server which will receive log messages sent by ESP32
-    * `Port` - Set the Port of the server
+    * `Network Protocol (TCP/UDP/WEBSOCKET)` - Set network protocol to be used 
+      * `UDP/TCP Network Protocol`
+        * `Server IP Address` - Set the IP Address of the server which will receive log messages sent by ESP32
+        * `Port` - Set the Port of the server
+      * `WEBSOCKET Network Protocol`
+        * `Websocket Server URI` - Sets the URI of Websocket server, where logs are to be sent
     * `Queue Size` - ***Advanced Config, change at your own risk*** Set the freeRTOS Queue size used to pass log messages to logger task.
     * `logger buffer size` - ***Advanced Config, change at your own risk*** Set the buffer size of char array used to generate log messages in ESP format
 
