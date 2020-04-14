@@ -10,7 +10,7 @@ ESP32 WiFi logger - Log messages over WiFi, using either TCP, UDP or Websockets
 * Using Websockets provides the worst latency
   * Minimal test condition - minimum free heap = 205416 bytes
 
-Example App: ![](https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example)
+Example App: ![https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example](https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example)
 
 ## Requirements
 
@@ -95,7 +95,7 @@ idf.py menuconfig
     * `logger buffer size` - ***Advanced Config, change at your own risk*** Set the buffer size of char array used to generate log messages in ESP format
 
 ## Example
-* Detailed Example App: ![](https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example)
+* Detailed Example App: ![https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example](https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example)
 
 ```C
 #include <stdio.h>
