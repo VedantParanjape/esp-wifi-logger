@@ -71,7 +71,7 @@ char* receive_from_queue(void)
 {
     char* data;
 
-    BaseType_t qerror = xQueueReceive(wifi_logger_queue, &data, (TickType_t) 10000/portTICK_PERIOD_MS);
+    BaseType_t qerror = xQueueReceive(wifi_logger_queue, &data, portMAX_DELAY);
     configASSERT(qerror);
     
     if(qerror == pdPASS)
