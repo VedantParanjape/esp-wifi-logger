@@ -24,9 +24,10 @@ QueueHandle_t wifi_logger_queue;
 
 esp_err_t init_queue(void);
 void init_wifi(void);
-esp_err_t send_to_queue(const char* log_message);
+esp_err_t send_to_queue(char* log_message);
 char* receive_from_queue(void);
 void generate_log_message(esp_log_level_t level, const char *TAG, int line, const char *func, const char *fmt, ...);
+int system_log_message_route(const char* fmt, va_list tag);
 void start_wifi_logger(void);
 void wifi_logger();
 
