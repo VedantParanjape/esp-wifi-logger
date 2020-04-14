@@ -63,16 +63,20 @@ esp_err_t send_to_queue(char* log_message)
 }
 
 /**
- * @brief Receive data from queue
+ * @brief Receive data from queue. Timeout is set to portMAX_DELAY, which is around 50 days (confirm from esp32 specs)
  * 
- * @return char* - returns log message received from the queue, returns NULL if error or timeout
+ * @return char* - returns log message received from the queue, returns NULL if error
 **/
 char* receive_from_queue(void)
 {
     char* data;
-
-    BaseType_t qerror = xQueueReceive(wifi_logger_queue, &data, portMAX_DELAY);
+    // ************************* IMPORTANT *******************************************************************
+    // Timeout period is set to portMAX_DELAY, so if it doesnot receive a log message for ~50 days, config assert will fail and program will crash
+    //
+    BaseType_t qerror = xQueueReceive(wifi_logger_queue, &data, (TickType_t) portMAX_DELAY);
     configASSERT(qerror);
+    //
+    // *******************************************************************************************************
     
     if(qerror == pdPASS)
     {
@@ -142,7 +146,13 @@ void generate_log_message(esp_log_level_t level, const char *TAG, int line, cons
         break;
     }
 
+    // ************************* IMPORTANT *******************************************************************
+    // I am mallocing a char* inside generate_log_timestamp() function situated inside util.cpp, log_print_buffer is not being pushed to queue
+    // The function returns the malloc'd char* and is passed to the queue
+    //
     send_to_queue(generate_log_message_timestamp(log_level_opt, esp_log_timestamp(), log_print_buffer));
+    //
+    //********************************************************************************************************
 }
 
 /**
@@ -175,7 +185,7 @@ void start_wifi_logger(void)
     esp_log_set_vprintf(system_log_message_route);
     #endif
     
-    xTaskCreatePinnedToCore(&wifi_logger, "wifi_logger", STACK_SIZE, NULL, 2, NULL, 1);
+    xTaskCreatePinnedToCore(&wifi_logger, "wifi_logger", 4096, NULL, 2, NULL, 1);
     ESP_LOGI(tag_wifi_logger, "WiFi logger initialised");
 }
 

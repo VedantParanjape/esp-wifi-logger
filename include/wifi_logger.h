@@ -14,7 +14,6 @@ QueueHandle_t wifi_logger_queue;
 
 #define MESSAGE_QUEUE_SIZE CONFIG_MESSAGE_QUEUE_SIZE
 #define BUFFER_SIZE CONFIG_BUFFER_SIZE
-#define STACK_SIZE CONFIG_MESSAGE_QUEUE_SIZE*8
 
 #define wifi_log_e(TAG, fmt, ...) generate_log_message(ESP_LOG_ERROR, TAG, __LINE__, __func__, fmt, __VA_ARGS__);
 #define wifi_log_w(TAG, fmt, ...) generate_log_message(ESP_LOG_WARN, TAG, __LINE__, __func__, fmt, __VA_ARGS__);
