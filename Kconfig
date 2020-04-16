@@ -1,4 +1,4 @@
-menu "WiFi Logger configration"
+menu "WiFi Logger configuration"
 
 choice TRANSPORT_PROTOCOL
     prompt "Network protocol (TCP/UDP/WEBSOCKET)"
