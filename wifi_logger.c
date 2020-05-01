@@ -115,12 +115,21 @@ void generate_log_message(esp_log_level_t level, const char *TAG, int line, cons
     char log_print_buffer[BUFFER_SIZE];
 
     memset(log_print_buffer, '\0', BUFFER_SIZE);
-    sprintf(log_print_buffer, "%s (%s:%d) ", TAG, func, line);
+    snprintf(log_print_buffer, BUFFER_SIZE, "%s (%s:%d) ", TAG, func, line);
     va_list args;
     va_start(args, fmt);
 
     int len = strlen(log_print_buffer);
-    vsprintf(&log_print_buffer[len], fmt, args);
+
+    if (BUFFER_SIZE - len > 1)
+    {
+        vsnprintf(&log_print_buffer[len], (BUFFER_SIZE - len), fmt, args);
+    }
+    else
+    {
+        memset(log_print_buffer, '\0', BUFFER_SIZE);
+        sprintf(log_print_buffer, "%s", "Buffer overflowed, increase buffer size");
+    }
     va_end(args);
     
     uint log_level_opt = 2;
