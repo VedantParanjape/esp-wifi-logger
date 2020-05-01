@@ -1,6 +1,7 @@
 #include "wifi_logger.h"
 
 static const char* tag_wifi_logger = "wifi_logger";
+static QueueHandle_t wifi_logger_queue;
 
 /**
  * @brief Initialises message queue

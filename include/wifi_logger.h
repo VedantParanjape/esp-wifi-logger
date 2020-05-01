@@ -10,8 +10,6 @@
 #include "esp_system.h"
 #include "freertos/queue.h"
 
-QueueHandle_t wifi_logger_queue;
-
 #define MESSAGE_QUEUE_SIZE CONFIG_MESSAGE_QUEUE_SIZE
 #define BUFFER_SIZE CONFIG_BUFFER_SIZE
 
