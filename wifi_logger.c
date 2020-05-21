@@ -85,8 +85,6 @@ char* receive_from_queue(void)
     }
     else if(qerror == pdFALSE)
     {
-        free((void*)data);
-
         ESP_LOGW(tag_wifi_logger, "%s", "Data not received from Queue");
         data = NULL;
     }
