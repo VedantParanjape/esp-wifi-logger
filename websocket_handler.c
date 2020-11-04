@@ -66,6 +66,8 @@ esp_websocket_client_handle_t websocket_network_manager()
  */
 int websocket_send_data(esp_websocket_client_handle_t network_handle, char* payload)
 {
+    while(!esp_websocket_client_is_connected(network_handle));
+
     if (esp_websocket_client_is_connected(network_handle)) 
     {
         int err = esp_websocket_client_send(network_handle, payload, strlen(payload), portMAX_DELAY);
