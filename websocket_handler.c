@@ -24,12 +24,12 @@ void websocket_event_handler(void *handler_args, esp_event_base_t base, int32_t 
             break;
 
         case WEBSOCKET_EVENT_DATA:
-            ESP_LOGI(TAG, "WEBSOCKET_EVENT_DATA");
-            ESP_LOGI(TAG, "Received opcode=%d", data->op_code);
-            ESP_LOGW(TAG, "Received=%.*s\r\n", data->data_len, (char*)data->data_ptr);
+            ESP_LOGD(TAG, "WEBSOCKET_EVENT_DATA");
+            ESP_LOGD(TAG, "Received opcode=%d", data->op_code);
+            ESP_LOGD(TAG, "Received=%.*s\r\n", data->data_len, (char*)data->data_ptr);
             break;
         case WEBSOCKET_EVENT_ERROR:
-            ESP_LOGI(TAG, "WEBSOCKET_EVENT_ERROR");
+            ESP_LOGW(TAG, "WEBSOCKET_EVENT_ERROR");
             break;
     }
 }
