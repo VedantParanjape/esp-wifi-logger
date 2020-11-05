@@ -36,11 +36,11 @@
 
 typedef enum websocket_op {
 	websocket_op_continue_payload = 0,
-	websocket_op_utf_8_text,
-	websocket_op_binary_data,
+	websocket_op_utf_8_text = 1,
+	websocket_op_binary_data = 2,
 	websocket_op_termination_frame = 8,
-	websocket_op_ping_frame,
-	websocket_op_pong_frame,
+	websocket_op_ping_frame = 9,
+	websocket_op_pong_frame = 10,
 }websocket_op_t;
 
 void websocket_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data);
