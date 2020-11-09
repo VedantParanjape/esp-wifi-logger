@@ -13,10 +13,10 @@ static const char* TAG = "websocket_handler";
 void websocket_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
     esp_websocket_event_data_t *data = (esp_websocket_event_data_t *)event_data;
+
     switch (event_id) {
         case WEBSOCKET_EVENT_CONNECTED:
             ESP_LOGI(TAG, "WEBSOCKET_EVENT_CONNECTED");
-
 
             break;
         case WEBSOCKET_EVENT_DISCONNECTED:
@@ -70,7 +70,6 @@ esp_websocket_client_handle_t websocket_network_manager()
  */
 int websocket_send_data(esp_websocket_client_handle_t network_handle, char* payload)
 {
-    while(!esp_websocket_client_is_connected(network_handle));
 
     if (esp_websocket_client_is_connected(network_handle)) 
     {
@@ -87,12 +86,8 @@ int websocket_send_data(esp_websocket_client_handle_t network_handle, char* payl
         
         return err;
     }
-    else
-    {
-        ESP_LOGE(TAG, "%s", "Client not connected");
 
-        return -1;
-    }
+    return -1;
 }
 
 /**

@@ -27,6 +27,7 @@ void generate_log_message(esp_log_level_t level, const char *TAG, int line, cons
 int system_log_message_route(const char* fmt, va_list tag);
 void start_wifi_logger(void);
 void wifi_logger();
+bool is_connected(void* handle_t);
 
 #endif
 

@@ -8,7 +8,7 @@ static const char *TAG = "tcp_handler";
  * @param nm tcp_network_data struct which contains necessary data for a TCP connection
  * @return void
  **/
-void tcp_network_manager(struct tcp_network_data* nm)
+bool tcp_network_manager(struct tcp_network_data* nm)
 {
     nm->dest_addr.sin_addr.s_addr = inet_addr(TCP_HOST_IP_ADDR);
     nm->dest_addr.sin_family = AF_INET;
@@ -21,22 +21,25 @@ void tcp_network_manager(struct tcp_network_data* nm)
     if (nm->sock < 0)
     {
         ESP_LOGE(TAG, "Unable to create socket: errno %d", errno);
+        tcp_close_network_manager(nm);
+        return false;
     }
     else
     {
-        ESP_LOGI(TAG, "Socket created, connected to %s:%d", TCP_HOST_IP_ADDR, TCP_PORT);
+        ESP_LOGI(TAG, "Socket created");
     }
 
     int err = connect(nm->sock, (struct sockaddr *)&nm->dest_addr, sizeof(nm->dest_addr));
     if (err != 0) {
         ESP_LOGE(TAG, "Socket unable to connect: errno %d", errno);
         tcp_close_network_manager(nm);
-        nm->sock = -1;
+        return false;
     }
     else
     {
-        ESP_LOGI(TAG, "%s", "Successfully connected");
+        ESP_LOGI(TAG, "Successfully connected to %s:%d with status %d", TCP_HOST_IP_ADDR, TCP_PORT, errno);
     }
+    return true;
 }
 
 /**
@@ -50,7 +53,7 @@ int tcp_send_data(struct tcp_network_data* nm, char* payload)
 {
     if(nm->sock < 0)
     {
-        ESP_LOGE(TAG, "%s", "Socket doesnot exist");
+        ESP_LOGE(TAG, "%s", "Socket does not exist");
         return -1;
     }
     else
@@ -108,9 +111,7 @@ char* tcp_receive_data(struct tcp_network_data* nm)
  **/
 void tcp_close_network_manager(struct tcp_network_data* nm)
 {
-    ESP_LOGI(TAG, "%s", "Shutting down socket");
+    ESP_LOGI(TAG, "%s", "Shutting down socket and restarting...");
     shutdown(nm->sock, 0);
     close(nm->sock);
-    free(nm);
-
 }

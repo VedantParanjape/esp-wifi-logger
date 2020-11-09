@@ -31,7 +31,7 @@ struct tcp_network_data
     int sock;
 };
 
-void tcp_network_manager(struct tcp_network_data* nm);
+bool tcp_network_manager(struct tcp_network_data* nm);
 int tcp_send_data(struct tcp_network_data* nm, char* payload);
 char* tcp_receive_data(struct tcp_network_data* nm);
 void tcp_close_network_manager(struct tcp_network_data* nm);

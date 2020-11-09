@@ -192,9 +192,36 @@ void start_wifi_logger(void)
     #ifdef CONFIG_ROUTE_ESP_IDF_API_LOGS_TO_WIFI
     esp_log_set_vprintf(system_log_message_route);
     #endif
-    
+
     xTaskCreatePinnedToCore(&wifi_logger, "wifi_logger", 4096, NULL, 2, NULL, 1);
     ESP_LOGI(tag_wifi_logger, "WiFi logger initialised");
+}
+
+/*
+ * @brief A common wrapper function to check connection status for all interfaces
+ *
+ * @param handle_t Interface handle
+ * @return bool True if connected
+ */
+bool is_connected(void* handle_t)
+{
+	bool ret = false;
+
+#ifdef CONFIG_TRANSPORT_PROTOCOL_WEBSOCKET
+	ret = esp_websocket_client_is_connected((esp_websocket_client_handle_t) handle_t);
+#endif
+#ifdef CONFIG_TRANSPORT_PROTOCOL_TCP
+	/* Technically ENOTCONN indicates socket is not connected but I think there is a bug
+	* Check out https://github.com/espressif/esp-idf/issues/6092 to follow the issue ticket raised
+	* Till then keeping the following check instead of just 0 == errno
+	**/
+	if (0 == errno || ENOTCONN == errno)
+	{
+		ret = true;
+	}
+#endif
+
+	return ret;
 }
 
 /**
@@ -237,29 +264,53 @@ void wifi_logger()
 #ifdef CONFIG_TRANSPORT_PROTOCOL_TCP
 void wifi_logger()
 {
-    struct tcp_network_data* handle = malloc(sizeof(struct network_data));
-    tcp_network_manager(handle);
+	char* log_message;
+	while(1) // To keep trying over and over
+	{
+		while(1) // Try creating and connecting to socket
+		{
+			struct tcp_network_data* handle = malloc(sizeof(struct network_data));
+			if (false == tcp_network_manager(handle))
+			{
+				// Slow down while retrying.
+				vTaskDelay(2000 / portTICK_PERIOD_MS);
+				break;
+			}
 
-    while (true)
-    {
-        char* log_message = receive_from_queue();
+			while (is_connected(handle))
+			{
+				log_message = receive_from_queue();
 
-        if (log_message != NULL)
-        {
-            int len = tcp_send_data(handle, log_message);
-            ESP_LOGD(tag_wifi_logger, "%d %s", len, "bytes of data sent");
-        
-            free((void*)log_message);
-        }
-        else
-        {
-            log_message = "Unknown error - receiving log message";
-            int len = tcp_send_data(handle, log_message);
-            ESP_LOGE(tag_wifi_logger, "%d %s", len, "Unknown error");
-        }
-    }
+				if (log_message != NULL)
+				{
+					int len = tcp_send_data(handle, log_message);
 
-    tcp_close_network_manager(handle);
+					if(len < 0)
+					{
+						/* Trying to push it back to queue if sending fails, but might lose some logs if frequency is high
+						 * Might see garbage at first when reconnected.
+						*/
+						xQueueSendToFront(wifi_logger_queue, (void*)log_message, (TickType_t) portMAX_DELAY);
+						break;
+					}
+					ESP_LOGD(tag_wifi_logger, "%d %s", len, "bytes of data sent");
+				}
+				else
+				{
+					log_message = "Unknown error - receiving log message";
+					int len = tcp_send_data(handle, log_message);
+					ESP_LOGE(tag_wifi_logger, "%d %s", len, "Unknown error");
+				}
+				//Checkout following link to understand why we need this delay if want watchdog running.
+				//https://github.com/espressif/esp-idf/issues/1646#issuecomment-367507724
+				vTaskDelay(10 / portTICK_PERIOD_MS);
+			}
+			if (handle->sock != -1)
+			{
+				tcp_close_network_manager(handle);
+			}
+		}
+	}
 }
 #endif
 
@@ -270,21 +321,34 @@ void wifi_logger()
 
     while (true)
     {
-        char* log_message = receive_from_queue();
+    	if(is_connected(handle))
+    	{
+			char* log_message = receive_from_queue();
 
-        if (log_message != NULL)
-        {
-            int len = websocket_send_data(handle, log_message);
-            ESP_LOGD(tag_wifi_logger, "%d %s", len, "bytes of data sent");
-        
-            free((void*)log_message);
-        }
-        else
-        {
-            log_message = "Unknown error - log message corrupt";
-            int len = websocket_send_data(handle, log_message);
-            ESP_LOGE(tag_wifi_logger, "%d %s", len, "Unknown error");
-        }
+			if (log_message != NULL)
+			{
+				int len = websocket_send_data(handle, log_message);
+
+				if(len > 0)
+				{
+					ESP_LOGD(tag_wifi_logger, "%d %s", len, "bytes of data sent");
+				}
+
+				free((void*)log_message);
+			}
+			else
+			{
+				log_message = "Unknown error - log message corrupt";
+				int len = websocket_send_data(handle, log_message);
+				ESP_LOGE(tag_wifi_logger, "%d %s", len, "Unknown error");
+			}
+    	}
+    	else
+    	{
+    		//Checkout following link to understand why we need this delay if want watchdog running.
+    		//https://github.com/espressif/esp-idf/issues/1646#issuecomment-367507724
+    		vTaskDelay(10 / portTICK_PERIOD_MS);
+    	}
     }
 
     websocket_close_network_manager(handle);
