@@ -27,12 +27,12 @@ extern "C" {
 
 struct network_data
 {
-    char rx_buffer[128];
-    char addr_str[128];
-    int addr_family;
-    int ip_protocol;
-    struct sockaddr_in dest_addr;
-    int sock;
+	char rx_buffer[128];
+	char addr_str[128];
+	int addr_family;
+	int ip_protocol;
+	struct sockaddr_in dest_addr;
+	int sock;
 };
 
 void network_manager(struct network_data* nm);
