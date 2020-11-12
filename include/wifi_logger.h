@@ -10,6 +10,10 @@
 #include "esp_system.h"
 #include "freertos/queue.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define MESSAGE_QUEUE_SIZE CONFIG_MESSAGE_QUEUE_SIZE
 #define BUFFER_SIZE CONFIG_BUFFER_SIZE
 
@@ -28,6 +32,10 @@ int system_log_message_route(const char* fmt, va_list tag);
 void start_wifi_logger(void);
 void wifi_logger();
 bool is_connected(void* handle_t);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

@@ -18,6 +18,10 @@
 #include "lwip/sys.h"
 #include <lwip/netdb.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define TCP_HOST_IP_ADDR CONFIG_SERVER_IP_ADDRESS
 #define TCP_PORT CONFIG_SERVER_PORT
 
@@ -35,5 +39,9 @@ bool tcp_network_manager(struct tcp_network_data* nm);
 int tcp_send_data(struct tcp_network_data* nm, char* payload);
 char* tcp_receive_data(struct tcp_network_data* nm);
 void tcp_close_network_manager(struct tcp_network_data* nm);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
