@@ -18,22 +18,30 @@
 #include "lwip/sys.h"
 #include <lwip/netdb.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define HOST_IP_ADDR CONFIG_SERVER_IP_ADDRESS
 #define PORT CONFIG_SERVER_PORT
 
 struct network_data
 {
-    char rx_buffer[128];
-    char addr_str[128];
-    int addr_family;
-    int ip_protocol;
-    struct sockaddr_in dest_addr;
-    int sock;
+	char rx_buffer[128];
+	char addr_str[128];
+	int addr_family;
+	int ip_protocol;
+	struct sockaddr_in dest_addr;
+	int sock;
 };
 
 void network_manager(struct network_data* nm);
 int send_data(struct network_data* nm, char* payload);
 char* receive_data(struct network_data* nm);
 void close_network_manager(struct network_data* nm);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

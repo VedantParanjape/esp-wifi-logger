@@ -14,6 +14,9 @@
 #include "esp_websocket_client.h"
 #include "esp_event.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define WEBSOCKET_HOST_URI CONFIG_SERVER_WEBSOCKET_URI
 
@@ -47,5 +50,9 @@ void websocket_event_handler(void *handler_args, esp_event_base_t base, int32_t 
 esp_websocket_client_handle_t websocket_network_manager();
 int websocket_send_data(esp_websocket_client_handle_t network_handle, char* payload);
 void websocket_close_network_manager(esp_websocket_client_handle_t network_handle);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
