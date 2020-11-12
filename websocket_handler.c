@@ -12,31 +12,32 @@ static const char* TAG = "websocket_handler";
  */
 void websocket_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
-	esp_websocket_event_data_t *data = (esp_websocket_event_data_t *)event_data;
+    esp_websocket_event_data_t *data = (esp_websocket_event_data_t *)event_data;
+    
+    switch (event_id) {
+        case WEBSOCKET_EVENT_CONNECTED:
+            ESP_LOGI(TAG, "WEBSOCKET_EVENT_CONNECTED");
 
-	switch (event_id) {
-	case WEBSOCKET_EVENT_CONNECTED:
-		ESP_LOGI(TAG, "WEBSOCKET_EVENT_CONNECTED");
 
-		break;
-	case WEBSOCKET_EVENT_DISCONNECTED:
-		ESP_LOGI(TAG, "WEBSOCKET_EVENT_DISCONNECTED");
-		break;
+            break;
+        case WEBSOCKET_EVENT_DISCONNECTED:
+            ESP_LOGI(TAG, "WEBSOCKET_EVENT_DISCONNECTED");
+            break;
 
-	case WEBSOCKET_EVENT_DATA:
-		//Avoid printing logs if it is just a ping/pong frame.
-		if(websocket_op_ping_frame != data->op_code && websocket_op_pong_frame != data->op_code)
-		{
-			ESP_LOGI(TAG, "WEBSOCKET_EVENT_DATA");
-			ESP_LOGI(TAG, "Received opcode=%d", data->op_code);
-			ESP_LOGW(TAG, "Received=%.*s\r\n", data->data_len, (char*)data->data_ptr);
-		}
-		break;
-
-	case WEBSOCKET_EVENT_ERROR:
-		ESP_LOGW(TAG, "WEBSOCKET_EVENT_ERROR");
-		break;
-	}
+        case WEBSOCKET_EVENT_DATA:
+        	  //Avoid printing logs if it is just a ping/pong frame.
+        	  if(websocket_op_ping_frame != data->op_code && websocket_op_pong_frame != data->op_code)
+        	  {
+        		  ESP_LOGI(TAG, "WEBSOCKET_EVENT_DATA");
+        		  ESP_LOGI(TAG, "Received opcode=%d", data->op_code);
+        		  ESP_LOGW(TAG, "Received=%.*s\r\n", data->data_len, (char*)data->data_ptr);
+        	  }
+            break;
+        
+        case WEBSOCKET_EVENT_ERROR:
+            ESP_LOGW(TAG, "WEBSOCKET_EVENT_ERROR");
+            break;
+    }
 }
 
 /**
