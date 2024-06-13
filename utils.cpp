@@ -11,7 +11,7 @@ const char log_level_color[5][7] = {"\e[31m", "\e[33m", "\e[32m", "\e[39m", "\e[
  * @param log_message log message to be sent through wifi
  * @return char* final log message with timestamp
  */
-char* generate_log_message_timestamp(uint log_level, uint32_t timestamp, char* log_message)
+char* generate_log_message_timestamp(uint8_t log_level, uint32_t timestamp, char* log_message)
 {
     log_level = log_level%5;
 
