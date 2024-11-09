@@ -46,9 +46,34 @@ typedef enum websocket_op {
 	websocket_op_pong_frame = 10,
 }websocket_op_t;
 
+/**
+ * @brief Websocket event handler
+ *
+ * @param handler_args args to be passed to handler
+ * @param base event base
+ * @param event_id event id
+ * @param event_data event data
+ */
 void websocket_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data);
+/**
+ * @brief start the websocket client and connect to the server
+ *
+ * @return esp_websocket_client_handle_t return a websocket client handle, used to communicate with server
+ */
 esp_websocket_client_handle_t websocket_network_manager();
+/**
+ * @brief Sends data to the websocket server
+ *
+ * @param network_handle network handle returned by network manager
+ * @param payload data to be sent to the server
+ * @return int returns number of bytes sent, -1 if any error occurs in sending
+ */
 int websocket_send_data(esp_websocket_client_handle_t network_handle, char* payload);
+/**
+ * @brief stop and destroy websocket client
+ *
+ * @param network_handle client handle that needs to be stopped and destroyed
+ */
 void websocket_close_network_manager(esp_websocket_client_handle_t network_handle);
 
 #ifdef __cplusplus
