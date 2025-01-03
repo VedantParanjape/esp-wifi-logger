@@ -14,3 +14,4 @@ char* generate_log_message_timestamp(uint log_level, uint32_t timestamp, char* l
 
     return c_log_string;
 }
+

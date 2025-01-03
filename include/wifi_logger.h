@@ -87,3 +87,4 @@ bool is_connected(void* handle_t);
 #endif
 
 #endif
+
