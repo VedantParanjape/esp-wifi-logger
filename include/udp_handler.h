@@ -35,9 +35,34 @@ struct network_data
 	int sock;
 };
 
+/**
+ * @brief Manages UDP connection to the server
+ *
+ * @param nm network_data struct which contains necessary data for a UDP connection
+ * @return void
+ **/
 void network_manager(struct network_data* nm);
+/**
+ * @brief Sends data to the server through a UDP socket
+ *
+ * @param nm A pointer to network_data struct
+ * @param payload char array which contains data to be sent
+ * @return int - returns -1 if sending failed, number of bytes sent if successfully sent the data
+ **/
 int send_data(struct network_data* nm, char* payload);
+/**
+ * @brief Receives data from UDP server
+ *
+ * @param nm network_data struct which contains connection info
+ * @return char array which contains data received
+ **/
 char* receive_data(struct network_data* nm);
+/**
+ * @brief Shutdown active connection, deallocate memory
+ *
+ * @param nm tcp_network_data struct which contains connection info
+ * @return void
+ **/
 void close_network_manager(struct network_data* nm);
 
 #ifdef __cplusplus
