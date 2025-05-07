@@ -98,6 +98,11 @@ idf.py menuconfig
       * `Websocket Server URI` - Sets the URI of Websocket server, where logs are to be sent
     * `Queue Size` - ***Advanced Config, change at your own risk*** Set the freeRTOS Queue size used to pass log messages to logger task.
     * `logger buffer size` - ***Advanced Config, change at your own risk*** Set the buffer size of char array used to generate log messages in ESP format
+* On ESP IDF 5.4.x and later, ANSI log color disable by default, we must enable it with below config, or include this in sdkconfig file: `CONFIG_LOG_COLORS=y`
+    * `Component config` 
+      * `Logs`
+        * `Format`
+         * `Color` 
 
 ## Example
 * Detailed Example App: ![https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example](https://github.com/VedantParanjape/esp-component-examples/tree/master/esp_wifi_logger_example)
