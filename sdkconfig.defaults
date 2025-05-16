@@ -1,0 +1,2 @@
+# Enable log color on ESF IDF 5.4 and later
+CONFIG_LOG_COLORS=y
